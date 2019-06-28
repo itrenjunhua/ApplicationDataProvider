@@ -1,5 +1,8 @@
 package com.renj.provider.controller;
 
+import com.renj.provider.bean.BaseResponseBean;
+import com.renj.provider.service.HomeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +25,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/home")
 public class HomeController {
 
-    @GetMapping("/hello")
-    public String get(){
-        return "Hello Word!";
+    @Autowired
+    private HomeService homeService;
+
+    @GetMapping("/data")
+    public BaseResponseBean homeData() {
+        return homeService.homeData();
     }
 }
