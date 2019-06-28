@@ -1,0 +1,9 @@
+logging:
+  #日志存储地址
+  #file: "logs/config/demo-xx.log"
+info:
+  name : "应用数据服务"
+
+server:
+  #端口号
+  port: 8888
