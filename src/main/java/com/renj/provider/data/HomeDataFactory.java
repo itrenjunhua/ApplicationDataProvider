@@ -78,7 +78,7 @@ public class HomeDataFactory {
 
         int nextInt = random.nextInt(4);
         for (int i = 0; i < nextInt; i++) {
-            images.add(StaticData.listImages[random.nextInt(StaticData.titles.length)]);
+            images.add(StaticData.listImages[random.nextInt(StaticData.listImages.length)]);
         }
 
         ListBean listBean = new ListBean();

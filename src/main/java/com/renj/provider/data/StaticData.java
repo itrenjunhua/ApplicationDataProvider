@@ -35,6 +35,8 @@ public class StaticData {
             "Banner 标题6",
             "Banner 标题7",
             "Banner 标题8",
+            "Banner 标题9",
+            "Banner 标题10",
     };
 
     static String[] notices = {
@@ -66,6 +68,8 @@ public class StaticData {
             "列表 标题6",
             "列表 标题7",
             "列表 标题8",
+            "列表 标题9",
+            "列表 标题10",
     };
 
     static String[] contents = {
@@ -77,6 +81,8 @@ public class StaticData {
             "列表内容FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
             "列表内容GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
             "列表内容HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+            "列表内容IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII",
+            "列表内容JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ",
     };
 
     static String[] sources = {
