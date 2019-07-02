@@ -21,6 +21,11 @@ public interface ResponseResultType {
     int CODE_SUCCESS = 200;
     String MESSAGE_SUCCESS = "success";
     /**
+     * 成功
+     */
+    int CODE_PARAMS_EXCEPTION = 300;
+    String MESSAGE_PARAMS_EXCEPTION = "params_exception";
+    /**
      * 失败
      */
     int CODE_FAIL = 501;

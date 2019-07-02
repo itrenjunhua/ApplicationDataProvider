@@ -2,11 +2,12 @@ package com.renj.provider.service;
 
 import com.renj.provider.bean.BaseResponseBean;
 import com.renj.provider.bean.ResponseResultType;
-import com.renj.provider.dao.HomeDao;
+import com.renj.provider.dao.CSDNDao;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * ======================================================================
@@ -23,19 +24,22 @@ import java.util.Map;
  * ======================================================================
  */
 @Service
-public class HomeService {
-    private HomeDao homeDao;
+public class CSDNService {
+    private CSDNDao CSDNDao;
 
-    public HomeService() {
-        homeDao = new HomeDao();
+    public CSDNService() {
+        CSDNDao = new CSDNDao();
     }
 
-    public BaseResponseBean homeData() {
+    public BaseResponseBean csdnBannerAndNotices() {
+        Random random = new Random();
         Map<String, Object> map = new HashMap<>();
-        map.put("banner", homeDao.createBannerList(4));
-        map.put("notice", homeDao.createNoticeBeanList(4));
-        map.put("list", homeDao.createListBeanList(8));
-
+        map.put("banner", CSDNDao.createBannerList(random.nextInt(6) + 1));
+        map.put("notice", CSDNDao.createNoticeBeanList(random.nextInt(5) + 1));
         return new BaseResponseBean(ResponseResultType.CODE_SUCCESS, ResponseResultType.MESSAGE_SUCCESS, map);
+    }
+
+    public BaseResponseBean csdnList(int pageNo, int pageSize) {
+        return new BaseResponseBean(ResponseResultType.CODE_SUCCESS, ResponseResultType.MESSAGE_SUCCESS, CSDNDao.createListBeanList(pageNo,pageSize));
     }
 }
