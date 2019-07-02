@@ -90,11 +90,14 @@ public class CSDNDataFactory {
         int endIndex = pageNo * pageSize;
         int startIndex = endIndex - pageSize;
 
-        if (startIndex < 0 || startIndex > CSDNStaticData.titles.length)
+        if (startIndex < 0)
             startIndex = 0;
 
         if (endIndex < 0 || endIndex > CSDNStaticData.titles.length)
             endIndex = CSDNStaticData.titles.length;
+
+        if (startIndex > CSDNStaticData.titles.length)
+            startIndex = endIndex - 10;
 
         List<ListBean> listBeans = new ArrayList<>();
         for (int i = startIndex; i < endIndex; i++) {
