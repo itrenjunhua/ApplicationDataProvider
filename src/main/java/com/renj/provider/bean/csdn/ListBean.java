@@ -1,6 +1,5 @@
 package com.renj.provider.bean.csdn;
 
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -28,19 +27,22 @@ public class ListBean {
     public String title;
     public String content;
     public String url;
+    public boolean isOriginal = true;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ListBean listBean = (ListBean) o;
-        return Objects.equals(title, listBean.title) &&
+        return isOriginal == listBean.isOriginal &&
+                Objects.equals(title, listBean.title) &&
                 Objects.equals(content, listBean.content) &&
                 Objects.equals(url, listBean.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, content, url);
+
+        return Objects.hash(title, content, url, isOriginal);
     }
 }

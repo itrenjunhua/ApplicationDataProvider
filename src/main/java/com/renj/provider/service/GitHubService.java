@@ -2,7 +2,7 @@ package com.renj.provider.service;
 
 import com.renj.provider.bean.BaseResponseBean;
 import com.renj.provider.bean.ResponseResultType;
-import com.renj.provider.dao.ListDao;
+import com.renj.provider.dao.GitHubDao;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,14 +20,14 @@ import org.springframework.stereotype.Service;
  * ======================================================================
  */
 @Service
-public class ListService {
-    private ListDao listDao;
+public class GitHubService {
+    private GitHubDao gitHubDao;
 
-    public ListService() {
-        this.listDao = new ListDao();
+    public GitHubService() {
+        this.gitHubDao = new GitHubDao();
     }
 
-    public BaseResponseBean listData(int size) {
-        return new BaseResponseBean(ResponseResultType.CODE_SUCCESS, ResponseResultType.MESSAGE_SUCCESS, listDao.createListBeanList(size));
+    public BaseResponseBean githubList(int pageNo, int pageSize) {
+        return new BaseResponseBean(ResponseResultType.CODE_SUCCESS, ResponseResultType.MESSAGE_SUCCESS, gitHubDao.createListBeanList(pageNo,pageSize));
     }
 }

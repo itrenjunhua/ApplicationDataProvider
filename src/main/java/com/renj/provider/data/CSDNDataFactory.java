@@ -3,7 +3,6 @@ package com.renj.provider.data;
 import com.renj.provider.bean.csdn.BannerBean;
 import com.renj.provider.bean.csdn.ListBean;
 import com.renj.provider.bean.csdn.NoticeBean;
-import com.renj.provider.data.CSDNStaticData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,6 +82,7 @@ public class CSDNDataFactory {
         listBean.title = CSDNStaticData.titles[index];
         listBean.content = CSDNStaticData.contents[index];
         listBean.url = CSDNStaticData.listUrls[index];
+        listBean.isOriginal = !listBean.content.startsWith("(转)");
         return listBean;
     }
 

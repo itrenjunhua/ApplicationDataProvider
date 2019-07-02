@@ -1,7 +1,7 @@
 package com.renj.provider.dao;
 
-import com.renj.provider.bean.ListBean;
-import com.renj.provider.data.ListDataFactory;
+import com.renj.provider.bean.github.ListBean;
+import com.renj.provider.data.GitHubDataFactory;
 
 import java.util.List;
 
@@ -19,14 +19,14 @@ import java.util.List;
  * <p>
  * ======================================================================
  */
-public class ListDao {
-    private ListDataFactory listDataFactory;
+public class GitHubDao {
+    private GitHubDataFactory gitHubDataFactory;
 
-    public ListDao() {
-        this.listDataFactory = new ListDataFactory();
+    public GitHubDao() {
+        this.gitHubDataFactory = new GitHubDataFactory();
     }
 
-    public List<ListBean> createListBeanList(int count) {
-        return listDataFactory.createListBeanList(count);
+    public List<ListBean> createListBeanList(int pageNo,int pageSize) {
+        return gitHubDataFactory.createListBeanList(pageNo,pageSize);
     }
 }

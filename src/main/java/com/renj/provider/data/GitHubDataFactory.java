@@ -1,10 +1,9 @@
 package com.renj.provider.data;
 
-import com.renj.provider.bean.ListBean;
+import com.renj.provider.bean.github.ListBean;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * ======================================================================
@@ -20,41 +19,34 @@ import java.util.Random;
  * <p>
  * ======================================================================
  */
-public class ListDataFactory {
-    private Random random;
+public class GitHubDataFactory {
 
-    public ListDataFactory() {
-        random = new Random();
+    public GitHubDataFactory() {
+
     }
 
-    public ListBean createListBean() {
-        List<String> images = new ArrayList<>();
-
-        int nextInt = random.nextInt(4);
-        for (int i = 0; i < nextInt; i++) {
-            images.add(StaticData.listImages[random.nextInt(StaticData.listImages.length)]);
-        }
-
+    public ListBean createListBean(int index) {
         ListBean listBean = new ListBean();
-        int anInt = random.nextInt(StaticData.titles.length);
-        listBean.title = StaticData.titles[anInt];
-        listBean.content = StaticData.contents[anInt];
-        listBean.images = images;
-        listBean.url = StaticData.listUrl;
-        listBean.src = StaticData.sources[random.nextInt(StaticData.sources.length)];
-        listBean.time = System.currentTimeMillis();
+        listBean.title = GitHubStaticData.titles[index];
+        listBean.content = GitHubStaticData.contents[index];
+        listBean.url = GitHubStaticData.listUrls[index];
+        listBean.isForked = listBean.content.startsWith("Forked");
         return listBean;
     }
 
-    public List<ListBean> createListBeanList(int count) {
-        if (count > StaticData.titles.length)
-            count = StaticData.titles.length;
+    public List<ListBean> createListBeanList(int pageNo, int pageSize) {
+        int endIndex = pageNo * pageSize;
+        int startIndex = endIndex - pageSize;
+
+        if (startIndex < 0 || startIndex > GitHubStaticData.titles.length)
+            startIndex = 0;
+
+        if (endIndex < 0 || endIndex > GitHubStaticData.titles.length)
+            endIndex = GitHubStaticData.titles.length;
 
         List<ListBean> listBeans = new ArrayList<>();
-        while (listBeans.size() < count) {
-            ListBean listBean = createListBean();
-            if (!listBeans.contains(listBean))
-                listBeans.add(listBean);
+        for (int i = startIndex; i < endIndex; i++) {
+            listBeans.add(createListBean(i));
         }
         return listBeans;
     }
