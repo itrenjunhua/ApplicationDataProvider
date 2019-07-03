@@ -1,7 +1,7 @@
 package com.renj.provider.service;
 
-import com.renj.provider.bean.BaseResponseBean;
-import com.renj.provider.bean.ResponseResultType;
+import com.renj.provider.bean.base.BaseResponseBean;
+import com.renj.provider.bean.base.ResponseResultType;
 import com.renj.provider.dao.CSDNDao;
 import org.springframework.stereotype.Service;
 

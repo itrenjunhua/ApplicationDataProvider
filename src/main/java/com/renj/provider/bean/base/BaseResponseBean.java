@@ -1,4 +1,4 @@
-package com.renj.provider.bean;
+package com.renj.provider.bean.base;
 
 /**
  * ======================================================================

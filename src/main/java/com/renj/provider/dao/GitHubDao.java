@@ -1,6 +1,6 @@
 package com.renj.provider.dao;
 
-import com.renj.provider.bean.github.ListBean;
+import com.renj.provider.bean.ListBean;
 import com.renj.provider.data.GitHubDataFactory;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class GitHubDao {
         this.gitHubDataFactory = new GitHubDataFactory();
     }
 
-    public List<ListBean> createListBeanList(int pageNo,int pageSize) {
+    public List<ListBean> createListBeanList(int pageNo, int pageSize) {
         return gitHubDataFactory.createListBeanList(pageNo,pageSize);
     }
 }

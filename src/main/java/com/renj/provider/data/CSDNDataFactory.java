@@ -1,8 +1,8 @@
 package com.renj.provider.data;
 
-import com.renj.provider.bean.csdn.BannerBean;
-import com.renj.provider.bean.csdn.ListBean;
-import com.renj.provider.bean.csdn.NoticeBean;
+import com.renj.provider.bean.BannerBean;
+import com.renj.provider.bean.ListBean;
+import com.renj.provider.bean.NoticeBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +31,11 @@ public class CSDNDataFactory {
 
     public BannerBean createBanner() {
         BannerBean bannerBean = new BannerBean();
-        int anInt = random.nextInt(CSDNStaticData.banners.length);
+        int anInt = random.nextInt(CSDNStaticData.bannerIds.length);
+        bannerBean.id = CSDNStaticData.bannerIds[anInt];
         bannerBean.title = CSDNStaticData.bannerTitles[anInt];
         bannerBean.image = CSDNStaticData.banners[anInt];
-        bannerBean.clickResult = CSDNStaticData.bannerUrls[anInt];
-        bannerBean.clickable = random.nextInt(2);
+        bannerBean.url = CSDNStaticData.bannerUrls[anInt];
         return bannerBean;
     }
 
@@ -54,7 +54,8 @@ public class CSDNDataFactory {
 
     public NoticeBean createNoticeBean() {
         NoticeBean noticeBean = new NoticeBean();
-        int anInt = random.nextInt(CSDNStaticData.notices.length);
+        int anInt = random.nextInt(CSDNStaticData.noticesIds.length);
+        noticeBean.id = CSDNStaticData.noticesIds[anInt];
         noticeBean.title = CSDNStaticData.notices[anInt];
         noticeBean.url = CSDNStaticData.noticeUrls[anInt];
         return noticeBean;
@@ -79,10 +80,11 @@ public class CSDNDataFactory {
 
     public ListBean createListBean(int index) {
         ListBean listBean = new ListBean();
+        listBean.pid = IPids.MY_CSDN;
+        listBean.id = CSDNStaticData.listIds[index];
         listBean.title = CSDNStaticData.titles[index];
         listBean.content = CSDNStaticData.contents[index];
         listBean.url = CSDNStaticData.listUrls[index];
-        listBean.isOriginal = !listBean.content.startsWith("(转)");
         return listBean;
     }
 
@@ -93,10 +95,10 @@ public class CSDNDataFactory {
         if (startIndex < 0)
             startIndex = 0;
 
-        if (endIndex < 0 || endIndex > CSDNStaticData.titles.length)
-            endIndex = CSDNStaticData.titles.length;
+        if (endIndex < 0 || endIndex > CSDNStaticData.listIds.length)
+            endIndex = CSDNStaticData.listIds.length;
 
-        if (startIndex > CSDNStaticData.titles.length)
+        if (startIndex > CSDNStaticData.listIds.length)
             startIndex = endIndex - 10;
 
         List<ListBean> listBeans = new ArrayList<>();

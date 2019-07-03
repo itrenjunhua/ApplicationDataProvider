@@ -1,6 +1,6 @@
 package com.renj.provider.data;
 
-import com.renj.provider.bean.github.ListBean;
+import com.renj.provider.bean.ListBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +27,11 @@ public class GitHubDataFactory {
 
     public ListBean createListBean(int index) {
         ListBean listBean = new ListBean();
+        listBean.pid = IPids.MY_GITHUB;
+        listBean.id = GitHubStaticData.ids[index];
         listBean.title = GitHubStaticData.titles[index];
         listBean.content = GitHubStaticData.contents[index];
         listBean.url = GitHubStaticData.listUrls[index];
-        listBean.isForked = listBean.content.startsWith("Forked");
         return listBean;
     }
 
@@ -41,10 +42,10 @@ public class GitHubDataFactory {
         if (startIndex < 0)
             startIndex = 0;
 
-        if (endIndex < 0 || endIndex > GitHubStaticData.titles.length)
-            endIndex = GitHubStaticData.titles.length;
+        if (endIndex < 0 || endIndex > GitHubStaticData.ids.length)
+            endIndex = GitHubStaticData.ids.length;
 
-        if (startIndex > CSDNStaticData.titles.length)
+        if (startIndex > GitHubStaticData.ids.length)
             startIndex = endIndex - 10;
 
         List<ListBean> listBeans = new ArrayList<>();

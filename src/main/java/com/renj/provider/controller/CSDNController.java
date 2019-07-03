@@ -1,7 +1,7 @@
 package com.renj.provider.controller;
 
-import com.renj.provider.bean.BaseResponseBean;
-import com.renj.provider.bean.ResponseResultType;
+import com.renj.provider.bean.base.BaseResponseBean;
+import com.renj.provider.bean.base.ResponseResultType;
 import com.renj.provider.service.CSDNService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

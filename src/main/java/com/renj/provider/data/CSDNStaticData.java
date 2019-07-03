@@ -16,6 +16,10 @@ package com.renj.provider.data;
  */
 public class CSDNStaticData {
     /* ===========================  banner 数据 =========================== */
+    static int[] bannerIds = {
+            9, 8, 7, 6, 5, 4, 3, 2, 1,
+    };
+
     static String[] banners = {
             "http://img07.mifile.cn/v1/MI_55950AFBBEDCB/T1t.V_BQJT1RXrhCrK.jpg",
             "http://www.33lc.com/article/UploadPic/2012-8/201281310521725613.jpg",
@@ -53,6 +57,10 @@ public class CSDNStaticData {
     };
 
     /* ===========================  notices 数据 =========================== */
+    static int[] noticesIds = {
+            9, 8, 7, 6, 5, 4, 3, 2, 1,
+    };
+
     static String[] notices = {
             "Java中Collection和Map体系(Java容器)",
             "Android页面状态控制框架(RPageStatusController)",
@@ -77,6 +85,15 @@ public class CSDNStaticData {
     };
 
     /* ===========================  list 数据 =========================== */
+    static int[] listIds = {
+            54, 53, 52, 51,
+            50, 49, 48, 47, 46, 45, 44, 43, 42, 41,
+            40, 39, 38, 37, 36, 35, 34, 33, 32, 31,
+            30, 29, 28, 27, 26, 25, 24, 22, 22, 21,
+            20, 19, 18, 17, 16, 15, 14, 11, 11, 11,
+            10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
+    };
+
     static String[] titles = {
             "Java中Collection和Map体系(Java容器)",
             "Android页面状态控制框架(RPageStatusController)",
@@ -100,7 +117,7 @@ public class CSDNStaticData {
             "Android 屏幕适配常用方法",
             "Android Studio编译常见错误",
             "应用程序方法数超过限制解决办法",
-            "(转)面向对象的三个基本特征和五大设计原则",
+            "面向对象的三个基本特征和五大设计原则",
             "Git 在 Android Studio 中的使用（图解）",
             "Git 使用整理（二）",
             "Git 使用整理（一）",
@@ -121,12 +138,12 @@ public class CSDNStaticData {
             "图片框架Picasso的简单使用",
             "Android 操作引导功能",
             "Android 水波纹效果",
-            "(转)Android 中PathMeasure的使用",
+            "Android 中PathMeasure的使用",
             "invalidate()和requestLayout()方法调用过程",
             "Android中的Scroller类",
             "Android中的事件分发机制",
             "Android自定义View的基本步骤和使用自定义属性",
-            "(转)Android自定义View之基本API（三）",
+            "Android自定义View之基本API（三）",
             "Android自定义View之基本API（二）",
             "Android自定义View之基本API（一）",
             "Android自定义View之View的绘制流程",

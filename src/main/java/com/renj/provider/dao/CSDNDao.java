@@ -1,8 +1,8 @@
 package com.renj.provider.dao;
 
-import com.renj.provider.bean.csdn.BannerBean;
-import com.renj.provider.bean.csdn.ListBean;
-import com.renj.provider.bean.csdn.NoticeBean;
+import com.renj.provider.bean.BannerBean;
+import com.renj.provider.bean.ListBean;
+import com.renj.provider.bean.NoticeBean;
 import com.renj.provider.data.CSDNDataFactory;
 
 import java.util.List;
