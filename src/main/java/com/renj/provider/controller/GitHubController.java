@@ -1,8 +1,8 @@
 package com.renj.provider.controller;
 
 import com.renj.provider.bean.base.BaseResponseBean;
-import com.renj.provider.bean.base.ResponseResultType;
 import com.renj.provider.service.GitHubService;
+import com.renj.provider.utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +32,7 @@ public class GitHubController {
     @GetMapping("/list")
     public BaseResponseBean githubList(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize){
         if (pageNo <= 0 || pageSize <= 0)
-            return new BaseResponseBean(ResponseResultType.CODE_PARAMS_EXCEPTION, ResponseResultType.MESSAGE_PARAMS_EXCEPTION, null);
+            return ResponseFactory.paramsExceptionResponse();
         return gitHubService.githubList(pageNo,pageSize);
     }
 }

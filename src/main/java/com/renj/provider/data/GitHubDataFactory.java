@@ -25,6 +25,17 @@ public class GitHubDataFactory {
 
     }
 
+    public int getTotal() {
+        return GitHubStaticData.ids.length;
+    }
+
+    public int getPage(int pageSize) {
+        if (GitHubStaticData.ids.length % pageSize == 0)
+            return GitHubStaticData.ids.length / pageSize;
+
+        return GitHubStaticData.ids.length / pageSize + 1;
+    }
+
     public ListBean createListBean(int index) {
         ListBean listBean = new ListBean();
         listBean.pid = IPids.MY_GITHUB;

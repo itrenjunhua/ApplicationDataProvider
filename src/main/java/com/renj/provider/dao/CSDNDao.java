@@ -45,6 +45,15 @@ public class CSDNDao {
         return CSDNDataFactory.createNoticeBeanList(count);
     }
 
+
+    public int getListTotal() {
+        return CSDNDataFactory.getListTotal();
+    }
+
+    public int getListPage(int pageSize) {
+        return CSDNDataFactory.getListPage(pageSize);
+    }
+
     public ListBean createListBean() {
         return CSDNDataFactory.createListBean();
     }

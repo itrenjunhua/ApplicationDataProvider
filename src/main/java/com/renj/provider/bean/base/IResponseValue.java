@@ -14,14 +14,14 @@ package com.renj.provider.bean.base;
  * <p>
  * ======================================================================
  */
-public interface ResponseResultType {
+public interface IResponseValue {
     /**
      * 成功
      */
     int CODE_SUCCESS = 200;
     String MESSAGE_SUCCESS = "success";
     /**
-     * 成功
+     * 参数异常
      */
     int CODE_PARAMS_EXCEPTION = 300;
     String MESSAGE_PARAMS_EXCEPTION = "params_exception";

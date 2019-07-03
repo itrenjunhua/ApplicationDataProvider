@@ -26,7 +26,15 @@ public class GitHubDao {
         this.gitHubDataFactory = new GitHubDataFactory();
     }
 
+    public int getTotal() {
+        return gitHubDataFactory.getTotal();
+    }
+
+    public int getPage(int pageSize) {
+        return gitHubDataFactory.getPage(pageSize);
+    }
+
     public List<ListBean> createListBeanList(int pageNo, int pageSize) {
-        return gitHubDataFactory.createListBeanList(pageNo,pageSize);
+        return gitHubDataFactory.createListBeanList(pageNo, pageSize);
     }
 }

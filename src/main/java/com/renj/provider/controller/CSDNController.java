@@ -1,7 +1,7 @@
 package com.renj.provider.controller;
 
 import com.renj.provider.bean.base.BaseResponseBean;
-import com.renj.provider.bean.base.ResponseResultType;
+import com.renj.provider.utils.ResponseFactory;
 import com.renj.provider.service.CSDNService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +38,7 @@ public class CSDNController {
     @GetMapping("/list")
     public BaseResponseBean csdnList(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize) {
         if (pageNo <= 0 || pageSize <= 0)
-            return new BaseResponseBean(ResponseResultType.CODE_PARAMS_EXCEPTION, ResponseResultType.MESSAGE_PARAMS_EXCEPTION, null);
+            return ResponseFactory.paramsExceptionResponse();
         return CSDNService.csdnList(pageNo, pageSize);
     }
 }

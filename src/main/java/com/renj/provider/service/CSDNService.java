@@ -1,8 +1,8 @@
 package com.renj.provider.service;
 
 import com.renj.provider.bean.base.BaseResponseBean;
-import com.renj.provider.bean.base.ResponseResultType;
 import com.renj.provider.dao.CSDNDao;
+import com.renj.provider.utils.ResponseFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -36,10 +36,10 @@ public class CSDNService {
         Map<String, Object> map = new HashMap<>();
         map.put("banner", CSDNDao.createBannerList(random.nextInt(6) + 1));
         map.put("notice", CSDNDao.createNoticeBeanList(random.nextInt(5) + 1));
-        return new BaseResponseBean(ResponseResultType.CODE_SUCCESS, ResponseResultType.MESSAGE_SUCCESS, map);
+        return ResponseFactory.successResponse(map);
     }
 
     public BaseResponseBean csdnList(int pageNo, int pageSize) {
-        return new BaseResponseBean(ResponseResultType.CODE_SUCCESS, ResponseResultType.MESSAGE_SUCCESS, CSDNDao.createListBeanList(pageNo,pageSize));
+        return ResponseFactory.listResponse(CSDNDao.getListTotal(), CSDNDao.getListPage(pageSize), CSDNDao.createListBeanList(pageNo, pageSize));
     }
 }

@@ -29,6 +29,8 @@ public class CSDNDataFactory {
         random = new Random();
     }
 
+    /* ===========================  banner 数据 =========================== */
+
     public BannerBean createBanner() {
         BannerBean bannerBean = new BannerBean();
         int anInt = random.nextInt(CSDNStaticData.bannerIds.length);
@@ -52,6 +54,8 @@ public class CSDNDataFactory {
         return bannerBeans;
     }
 
+    /* ===========================  notices 数据 =========================== */
+
     public NoticeBean createNoticeBean() {
         NoticeBean noticeBean = new NoticeBean();
         int anInt = random.nextInt(CSDNStaticData.noticesIds.length);
@@ -72,6 +76,19 @@ public class CSDNDataFactory {
                 noticeBeans.add(noticeBean);
         }
         return noticeBeans;
+    }
+
+    /* ===========================  list 数据 =========================== */
+
+    public int getListTotal() {
+        return CSDNStaticData.listIds.length;
+    }
+
+    public int getListPage(int pageSize) {
+        if (CSDNStaticData.listIds.length % pageSize == 0)
+            return CSDNStaticData.listIds.length / pageSize;
+
+        return CSDNStaticData.listIds.length / pageSize + 1;
     }
 
     public ListBean createListBean() {

@@ -1,8 +1,8 @@
 package com.renj.provider.service;
 
 import com.renj.provider.bean.base.BaseResponseBean;
-import com.renj.provider.bean.base.ResponseResultType;
 import com.renj.provider.dao.GitHubDao;
+import com.renj.provider.utils.ResponseFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -28,6 +28,6 @@ public class GitHubService {
     }
 
     public BaseResponseBean githubList(int pageNo, int pageSize) {
-        return new BaseResponseBean(ResponseResultType.CODE_SUCCESS, ResponseResultType.MESSAGE_SUCCESS, gitHubDao.createListBeanList(pageNo,pageSize));
+        return ResponseFactory.listResponse(gitHubDao.getTotal(), gitHubDao.getPage(pageSize), gitHubDao.createListBeanList(pageNo, pageSize));
     }
 }
