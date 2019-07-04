@@ -1,6 +1,7 @@
 package com.renj.provider.utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class FileUtils {
      * @throws IOException
      */
     public static <T> List<T> readFileToListBean(String filePath, Class<T> clazz) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(ApplicationConfig.ROOT_DIR + File.separator + filePath));
         List<T> result = new ArrayList<>();
         String line;
         while ((line = bufferedReader.readLine()) != null) {

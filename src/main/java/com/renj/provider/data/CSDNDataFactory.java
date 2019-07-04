@@ -25,18 +25,19 @@ import java.util.List;
  * ======================================================================
  */
 public class CSDNDataFactory {
+    private final static String FILE_DIR = "my_csdn";
 
     /* ===========================  banner 数据 =========================== */
 
     public List<BannerBean> getBannerList() throws IOException {
-        List<BannerBean> bannerBeans = FileUtils.readFileToListBean("data" + File.separator + "my_csdn" + File.separator + "banner.data", BannerBean.class);
+        List<BannerBean> bannerBeans = FileUtils.readFileToListBean(FILE_DIR + File.separator + "banner.data", BannerBean.class);
         return bannerBeans;
     }
 
     /* ===========================  notices 数据 =========================== */
 
     public List<NoticeBean> getNoticesList() throws IOException {
-        List<NoticeBean> noticeBeans = FileUtils.readFileToListBean("data" + File.separator + "my_csdn" + File.separator + "notices.data", NoticeBean.class);
+        List<NoticeBean> noticeBeans = FileUtils.readFileToListBean(FILE_DIR + File.separator + "notices.data", NoticeBean.class);
         return noticeBeans;
     }
 
