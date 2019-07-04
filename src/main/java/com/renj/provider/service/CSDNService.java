@@ -6,8 +6,6 @@ import com.renj.provider.utils.ResponseFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * ======================================================================
@@ -25,18 +23,15 @@ import java.util.Map;
  */
 @Service
 public class CSDNService {
-    private CSDNDao CSDNDao;
+    private CSDNDao csdnDao;
 
     public CSDNService() {
-        CSDNDao = new CSDNDao();
+        csdnDao = new CSDNDao();
     }
 
     public BaseResponseBean csdnBannerAndNotices() {
-        Map<String, Object> map = new HashMap<>();
         try {
-            map.put("banner", CSDNDao.createBannerList());
-            map.put("notice", CSDNDao.createNoticeBeanList());
-            return ResponseFactory.successResponse(map);
+            return ServiceHelp.getBannerAndNotices(csdnDao.createBannerList(), csdnDao.createNoticeBeanList());
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseFactory.handlerExceptionResponse();
@@ -44,6 +39,11 @@ public class CSDNService {
     }
 
     public BaseResponseBean csdnList(int pageNo, int pageSize) {
-        return ResponseFactory.listResponse(CSDNDao.getListTotal(), CSDNDao.getListPage(pageSize), CSDNDao.createListBeanList(pageNo, pageSize));
+        try {
+            return ServiceHelp.getListBean(csdnDao.getListTotalAndPage(pageSize), csdnDao.createListBeanList(pageNo, pageSize));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseFactory.handlerExceptionResponse();
+        }
     }
 }

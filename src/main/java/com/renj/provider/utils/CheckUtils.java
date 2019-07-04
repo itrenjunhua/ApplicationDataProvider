@@ -15,6 +15,10 @@ package com.renj.provider.utils;
  * ======================================================================
  */
 public class CheckUtils {
+    public static boolean isEmpty(String string) {
+        return string == null || string.length() == 0;
+    }
+
     public static boolean isNull(Object object) {
         return object == null;
     }

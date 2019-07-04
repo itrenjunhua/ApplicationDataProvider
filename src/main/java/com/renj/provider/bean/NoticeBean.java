@@ -1,7 +1,5 @@
 package com.renj.provider.bean;
 
-import java.util.Objects;
-
 /**
  * ======================================================================
  * <p>
@@ -27,18 +25,4 @@ public class NoticeBean {
     public String title;
     public String url;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        NoticeBean that = (NoticeBean) o;
-        return id == that.id &&
-                Objects.equals(title, that.title) &&
-                Objects.equals(url, that.url);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, url);
-    }
 }

@@ -33,20 +33,20 @@ public class GitHubDao {
         return gitHubDataFactory.getBannerList();
     }
 
-
     public List<NoticeBean> createNoticeBeanList() throws IOException {
         return gitHubDataFactory.getNoticesList();
     }
 
-    public int getTotal() {
-        return gitHubDataFactory.getTotal();
+    /**
+     * 获取列表的总数和页数
+     *
+     * @return int[] result[0]：总数 result[1]：页数
+     */
+    public int[] getListTotalAndPage(int pageSize) throws IOException {
+        return gitHubDataFactory.getListTotalAndPage(pageSize);
     }
 
-    public int getPage(int pageSize) {
-        return gitHubDataFactory.getPage(pageSize);
-    }
-
-    public List<ListBean> createListBeanList(int pageNo, int pageSize) {
+    public List<ListBean> createListBeanList(int pageNo, int pageSize) throws IOException {
         return gitHubDataFactory.createListBeanList(pageNo, pageSize);
     }
 }

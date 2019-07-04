@@ -1,7 +1,6 @@
 package com.renj.provider.data;
 
 import com.renj.provider.bean.ClassificationBean;
-import com.renj.provider.utils.FileUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,7 +27,6 @@ public class ClassificationDataFactory {
      * @throws IOException
      */
     public List<ClassificationBean> getClassificationBean() throws IOException {
-        List<ClassificationBean> classificationBeans = FileUtils.readFileToListBean("classification.data", ClassificationBean.class);
-        return classificationBeans;
+        return FactoryHelp.getClassificationBean();
     }
 }

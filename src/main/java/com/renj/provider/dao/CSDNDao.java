@@ -34,21 +34,20 @@ public class CSDNDao {
         return csdnDataFactory.getBannerList();
     }
 
-
     public List<NoticeBean> createNoticeBeanList() throws IOException {
         return csdnDataFactory.getNoticesList();
     }
 
-
-    public int getListTotal() {
-        return csdnDataFactory.getListTotal();
+    /**
+     * 获取列表的总数和页数
+     *
+     * @return int[] result[0]：总数 result[1]：页数
+     */
+    public int[] getListTotalAndPage(int pageSize) throws IOException {
+        return csdnDataFactory.getListTotalAndPage(pageSize);
     }
 
-    public int getListPage(int pageSize) {
-        return csdnDataFactory.getListPage(pageSize);
-    }
-
-    public List<ListBean> createListBeanList(int pageNo,int pageSize) {
+    public List<ListBean> createListBeanList(int pageNo,int pageSize) throws IOException {
         return csdnDataFactory.createListBeanList(pageNo,pageSize);
     }
 }

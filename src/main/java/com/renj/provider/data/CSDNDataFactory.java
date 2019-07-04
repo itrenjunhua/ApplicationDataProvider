@@ -7,7 +7,6 @@ import com.renj.provider.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +25,7 @@ import java.util.List;
  */
 public class CSDNDataFactory {
     private final static String FILE_DIR = "my_csdn";
+    private final static int MY_CSDN_PID = 1;
 
     /* ===========================  banner 数据 =========================== */
 
@@ -43,44 +43,23 @@ public class CSDNDataFactory {
 
     /* ===========================  list 数据 =========================== */
 
-    public int getListTotal() {
-        return CSDNStaticData.listIds.length;
+    /**
+     * 获取列表的总数和页数
+     *
+     * @return int[] result[0]：总数 result[1]：页数
+     */
+    public int[] getListTotalAndPage(int pageSize) throws IOException {
+        return FactoryHelp.getListTotalAndPage(MY_CSDN_PID, pageSize);
     }
 
-    public int getListPage(int pageSize) {
-        if (CSDNStaticData.listIds.length % pageSize == 0)
-            return CSDNStaticData.listIds.length / pageSize;
-
-        return CSDNStaticData.listIds.length / pageSize + 1;
+    public List<ListBean> createListBeanList(int pageNo, int pageSize) throws IOException {
+        return FactoryHelp.createListBeanList(MY_CSDN_PID,FILE_DIR,pageNo,pageSize);
     }
 
-    public ListBean createListBean(int index) {
-        ListBean listBean = new ListBean();
-        listBean.pid = IPids.MY_CSDN;
-        listBean.id = CSDNStaticData.listIds[index];
-        listBean.title = CSDNStaticData.titles[index];
-        listBean.content = CSDNStaticData.contents[index];
-        listBean.url = CSDNStaticData.listUrls[index];
-        return listBean;
-    }
-
-    public List<ListBean> createListBeanList(int pageNo, int pageSize) {
-        int endIndex = pageNo * pageSize;
-        int startIndex = endIndex - pageSize;
-
-        if (startIndex < 0)
-            startIndex = 0;
-
-        if (endIndex < 0 || endIndex > CSDNStaticData.listIds.length)
-            endIndex = CSDNStaticData.listIds.length;
-
-        if (startIndex > CSDNStaticData.listIds.length)
-            startIndex = endIndex - 10;
-
-        List<ListBean> listBeans = new ArrayList<>();
-        for (int i = startIndex; i < endIndex; i++) {
-            listBeans.add(createListBean(i));
+    public static void main(String[] args) throws IOException {
+        List<ListBean> listBeans = new CSDNDataFactory().createListBeanList(4, 10);
+        for (ListBean listBean : listBeans) {
+            System.out.println(listBean);
         }
-        return listBeans;
     }
 }

@@ -30,4 +30,16 @@ public class ListBean {
     public String content;
     public String url;
     public List<String> images;
+
+    @Override
+    public String toString() {
+        return "ListBean{" +
+                "pid=" + pid +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", url='" + url + '\'' +
+                ", images=" + images +
+                '}';
+    }
 }

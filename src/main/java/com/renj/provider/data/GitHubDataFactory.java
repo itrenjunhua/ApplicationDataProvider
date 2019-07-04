@@ -7,7 +7,6 @@ import com.renj.provider.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +26,7 @@ import java.util.List;
 public class GitHubDataFactory {
 
     private final static String FILE_DIR = "my_github";
+    private final static int MY_GITHUB_PID = 2;
 
     public GitHubDataFactory() {
 
@@ -48,44 +48,23 @@ public class GitHubDataFactory {
 
     /* ===========================  list 数据 =========================== */
 
-    public int getTotal() {
-        return GitHubStaticData.ids.length;
+    /**
+     * 获取列表的总数和页数
+     *
+     * @return int[] result[0]：总数 result[1]：页数
+     */
+    public int[] getListTotalAndPage(int pageSize) throws IOException {
+        return FactoryHelp.getListTotalAndPage(MY_GITHUB_PID, pageSize);
     }
 
-    public int getPage(int pageSize) {
-        if (GitHubStaticData.ids.length % pageSize == 0)
-            return GitHubStaticData.ids.length / pageSize;
-
-        return GitHubStaticData.ids.length / pageSize + 1;
+    public List<ListBean> createListBeanList(int pageNo, int pageSize) throws IOException {
+        return FactoryHelp.createListBeanList(MY_GITHUB_PID,FILE_DIR,pageNo,pageSize);
     }
 
-    public ListBean createListBean(int index) {
-        ListBean listBean = new ListBean();
-        listBean.pid = IPids.MY_GITHUB;
-        listBean.id = GitHubStaticData.ids[index];
-        listBean.title = GitHubStaticData.titles[index];
-        listBean.content = GitHubStaticData.contents[index];
-        listBean.url = GitHubStaticData.listUrls[index];
-        return listBean;
-    }
-
-    public List<ListBean> createListBeanList(int pageNo, int pageSize) {
-        int endIndex = pageNo * pageSize;
-        int startIndex = endIndex - pageSize;
-
-        if (startIndex < 0)
-            startIndex = 0;
-
-        if (endIndex < 0 || endIndex > GitHubStaticData.ids.length)
-            endIndex = GitHubStaticData.ids.length;
-
-        if (startIndex > GitHubStaticData.ids.length)
-            startIndex = endIndex - 10;
-
-        List<ListBean> listBeans = new ArrayList<>();
-        for (int i = startIndex; i < endIndex; i++) {
-            listBeans.add(createListBean(i));
+    public static void main(String[] args) throws IOException {
+        List<ListBean> listBeans = new CSDNDataFactory().createListBeanList(4, 10);
+        for (ListBean listBean : listBeans) {
+            System.out.println(listBean);
         }
-        return listBeans;
     }
 }

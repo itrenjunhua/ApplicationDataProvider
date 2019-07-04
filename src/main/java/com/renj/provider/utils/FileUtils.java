@@ -1,10 +1,8 @@
 package com.renj.provider.utils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,6 +20,7 @@ import java.util.List;
  * ======================================================================
  */
 public class FileUtils {
+
     /**
      * 将文件数据组装成集合
      *
@@ -42,7 +41,28 @@ public class FileUtils {
         return result;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static <T> List<T> readFileToListBean(String filePath, int startIndex, int endIndex, Class<T> clazz) throws IOException {
+        filePath = ApplicationConfig.ROOT_DIR + File.separator + filePath;
+        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath));
 
+        List<T> result = new ArrayList<>();
+        String line = lineNumberReader.readLine();
+        int lineNumber = lineNumberReader.getLineNumber();
+        while (line != null) {
+            if (lineNumber <= startIndex && lineNumber > endIndex) {
+                if (!CheckUtils.isEmpty(line))
+                    result.add(JsonUtils.jsonToBean(line, clazz));
+            }
+            if (lineNumber >= startIndex) break;
+
+            line = lineNumberReader.readLine();
+            lineNumber = lineNumberReader.getLineNumber();
+        }
+        lineNumberReader.close();
+        Collections.reverse(result);
+        return result;
+    }
+
+    public static void main(String[] args) throws IOException {
     }
 }

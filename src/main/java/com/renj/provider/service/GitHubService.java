@@ -6,8 +6,6 @@ import com.renj.provider.utils.ResponseFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * ======================================================================
@@ -32,11 +30,8 @@ public class GitHubService {
     }
 
     public BaseResponseBean githubBannerAndNotices() {
-        Map<String, Object> map = new HashMap<>();
         try {
-            map.put("banner", gitHubDao.createBannerList());
-            map.put("notice", gitHubDao.createNoticeBeanList());
-            return ResponseFactory.successResponse(map);
+            return ServiceHelp.getBannerAndNotices(gitHubDao.createBannerList(), gitHubDao.createNoticeBeanList());
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseFactory.handlerExceptionResponse();
@@ -44,6 +39,11 @@ public class GitHubService {
     }
 
     public BaseResponseBean githubList(int pageNo, int pageSize) {
-        return ResponseFactory.listResponse(gitHubDao.getTotal(), gitHubDao.getPage(pageSize), gitHubDao.createListBeanList(pageNo, pageSize));
+        try {
+            return ServiceHelp.getListBean(gitHubDao.getListTotalAndPage(pageSize), gitHubDao.createListBeanList(pageNo, pageSize));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseFactory.handlerExceptionResponse();
+        }
     }
 }
