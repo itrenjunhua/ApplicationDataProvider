@@ -38,8 +38,8 @@ public interface IResponseValue {
     /**
      * token异常
      */
-    int CODE_KEY_EXCEPTION = 503;
-    String MESSAGE_KEY_EXCEPTION = "key_exception";
+    int CODE_TOKEN_EXCEPTION = 503;
+    String MESSAGE_TOKEN_EXCEPTION = "token_exception";
     /**
      * 未知异常
      */

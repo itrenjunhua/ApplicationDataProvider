@@ -1,5 +1,7 @@
 package com.renj.provider.utils;
 
+import java.util.List;
+
 /**
  * ======================================================================
  * <p>
@@ -30,5 +32,9 @@ public class CheckUtils {
             if (isNull(object)) return true;
         }
         return false;
+    }
+
+    public static boolean isEmpty(List list) {
+        return list == null || list.isEmpty();
     }
 }

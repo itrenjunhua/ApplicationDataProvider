@@ -1,4 +1,4 @@
-package com.renj.provider.utils;
+package com.renj.provider;
 
 /**
  * ======================================================================
@@ -15,5 +15,13 @@ package com.renj.provider.utils;
  * ======================================================================
  */
 public interface ApplicationConfig {
+    /**
+     * 数据根目录
+     */
     String ROOT_DIR = "data";
+
+    /**
+     * token缓存更新间隔时间
+     */
+    long TOKEN_REFRESH_TIME = 1000 * 60;
 }

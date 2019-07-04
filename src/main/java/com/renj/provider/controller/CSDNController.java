@@ -1,13 +1,20 @@
 package com.renj.provider.controller;
 
 import com.renj.provider.bean.base.BaseResponseBean;
-import com.renj.provider.utils.ResponseFactory;
 import com.renj.provider.service.CSDNService;
+import com.renj.provider.utils.ResponseFactory;
+import com.renj.provider.utils.TokenManager;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * ======================================================================
@@ -23,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>
  * ======================================================================
  */
+@Api(tags = "我的CSDN页面接口")
 @RestController
 @RequestMapping("/csdn")
 public class CSDNController {
@@ -30,13 +38,31 @@ public class CSDNController {
     @Autowired
     private CSDNService csdnService;
 
+    @ApiOperation("获取我的CSDN页面banner数据和公告数据")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "token", value = "token", dataType = "String", paramType = "query", required = true)
+    })
     @GetMapping("/index")
-    public BaseResponseBean csdnBannerAndNotices() {
+    public BaseResponseBean csdnBannerAndNotices(HttpServletRequest request) {
+        if (!TokenManager.getInstance().tokenCheck(request))
+            return ResponseFactory.tokenExceptionResponse();
+
         return csdnService.csdnBannerAndNotices();
     }
 
+    @ApiOperation("获取我的CSDN页列表数据")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "token", value = "token", dataType = "String", paramType = "query", required = true),
+            @ApiImplicitParam(name = "pageNo", value = "页数", dataType = "int", paramType = "query", required = true),
+            @ApiImplicitParam(name = "pageSize", value = "每页大小", dataType = "int", paramType = "query", required = true)
+    })
     @GetMapping("/list")
-    public BaseResponseBean csdnList(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize) {
+    public BaseResponseBean csdnList(HttpServletRequest request,
+                                     @RequestParam("pageNo") Integer pageNo,
+                                     @RequestParam("pageSize") Integer pageSize) {
+        if (!TokenManager.getInstance().tokenCheck(request))
+            return ResponseFactory.tokenExceptionResponse();
+
         if (pageNo <= 0 || pageSize <= 0)
             return ResponseFactory.paramsExceptionResponse();
         return csdnService.csdnList(pageNo, pageSize);

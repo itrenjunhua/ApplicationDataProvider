@@ -1,5 +1,7 @@
 package com.renj.provider.utils;
 
+import com.renj.provider.ApplicationConfig;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +22,17 @@ import java.util.List;
  * ======================================================================
  */
 public class FileUtils {
+
+    public static List<String> readFileToListString(String filePath) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(ApplicationConfig.ROOT_DIR + File.separator + filePath));
+        List<String> result = new ArrayList<>();
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            result.add(line);
+        }
+        bufferedReader.close();
+        return result;
+    }
 
     /**
      * 将文件数据组装成集合
@@ -59,6 +72,7 @@ public class FileUtils {
             lineNumber = lineNumberReader.getLineNumber();
         }
         lineNumberReader.close();
+        // 倒序排列
         Collections.reverse(result);
         return result;
     }

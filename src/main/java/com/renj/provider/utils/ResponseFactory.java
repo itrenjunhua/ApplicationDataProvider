@@ -51,7 +51,7 @@ public class ResponseFactory {
      * 创建token异常响应
      */
     public static BaseResponseBean tokenExceptionResponse() {
-        return new BaseResponseBean(IResponseValue.CODE_KEY_EXCEPTION, IResponseValue.MESSAGE_KEY_EXCEPTION, null);
+        return new BaseResponseBean(IResponseValue.CODE_TOKEN_EXCEPTION, IResponseValue.MESSAGE_TOKEN_EXCEPTION, null);
     }
 
     /**
