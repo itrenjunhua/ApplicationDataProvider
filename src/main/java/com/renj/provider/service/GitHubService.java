@@ -5,6 +5,10 @@ import com.renj.provider.dao.GitHubDao;
 import com.renj.provider.utils.ResponseFactory;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * ======================================================================
  * <p>
@@ -25,6 +29,18 @@ public class GitHubService {
 
     public GitHubService() {
         this.gitHubDao = new GitHubDao();
+    }
+
+    public BaseResponseBean githubBannerAndNotices() {
+        Map<String, Object> map = new HashMap<>();
+        try {
+            map.put("banner", gitHubDao.createBannerList());
+            map.put("notice", gitHubDao.createNoticeBeanList());
+            return ResponseFactory.successResponse(map);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseFactory.handlerExceptionResponse();
+        }
     }
 
     public BaseResponseBean githubList(int pageNo, int pageSize) {

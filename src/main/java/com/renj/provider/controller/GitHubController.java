@@ -29,10 +29,15 @@ public class GitHubController {
     @Autowired
     private GitHubService gitHubService;
 
+    @GetMapping("/index")
+    public BaseResponseBean csdnBannerAndNotices() {
+        return gitHubService.githubBannerAndNotices();
+    }
+
     @GetMapping("/list")
-    public BaseResponseBean githubList(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize){
+    public BaseResponseBean githubList(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize) {
         if (pageNo <= 0 || pageSize <= 0)
             return ResponseFactory.paramsExceptionResponse();
-        return gitHubService.githubList(pageNo,pageSize);
+        return gitHubService.githubList(pageNo, pageSize);
     }
 }

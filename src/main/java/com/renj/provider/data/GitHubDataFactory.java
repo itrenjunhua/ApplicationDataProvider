@@ -1,7 +1,12 @@
 package com.renj.provider.data;
 
+import com.renj.provider.bean.BannerBean;
 import com.renj.provider.bean.ListBean;
+import com.renj.provider.bean.NoticeBean;
+import com.renj.provider.utils.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +29,22 @@ public class GitHubDataFactory {
     public GitHubDataFactory() {
 
     }
+
+    /* ===========================  banner 数据 =========================== */
+
+    public List<BannerBean> getBannerList() throws IOException {
+        List<BannerBean> bannerBeans = FileUtils.readFileToListBean("data" + File.separator + "my_github" + File.separator + "banner.data", BannerBean.class);
+        return bannerBeans;
+    }
+
+    /* ===========================  notices 数据 =========================== */
+
+    public List<NoticeBean> getNoticesList() throws IOException {
+        List<NoticeBean> noticeBeans = FileUtils.readFileToListBean("data" + File.separator + "my_github" + File.separator + "notices.data", NoticeBean.class);
+        return noticeBeans;
+    }
+
+    /* ===========================  list 数据 =========================== */
 
     public int getTotal() {
         return GitHubStaticData.ids.length;

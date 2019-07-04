@@ -3,10 +3,12 @@ package com.renj.provider.data;
 import com.renj.provider.bean.BannerBean;
 import com.renj.provider.bean.ListBean;
 import com.renj.provider.bean.NoticeBean;
+import com.renj.provider.utils.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * ======================================================================
@@ -23,58 +25,18 @@ import java.util.Random;
  * ======================================================================
  */
 public class CSDNDataFactory {
-    private Random random;
-
-    public CSDNDataFactory() {
-        random = new Random();
-    }
 
     /* ===========================  banner 数据 =========================== */
 
-    public BannerBean createBanner() {
-        BannerBean bannerBean = new BannerBean();
-        int anInt = random.nextInt(CSDNStaticData.bannerIds.length);
-        bannerBean.id = CSDNStaticData.bannerIds[anInt];
-        bannerBean.title = CSDNStaticData.bannerTitles[anInt];
-        bannerBean.image = CSDNStaticData.banners[anInt];
-        bannerBean.url = CSDNStaticData.bannerUrls[anInt];
-        return bannerBean;
-    }
-
-    public List<BannerBean> createBannerList(int count) {
-        if (count > CSDNStaticData.banners.length)
-            count = CSDNStaticData.banners.length;
-
-        List<BannerBean> bannerBeans = new ArrayList<>();
-        while (bannerBeans.size() < count) {
-            BannerBean banner = createBanner();
-            if (!bannerBeans.contains(banner))
-                bannerBeans.add(banner);
-        }
+    public List<BannerBean> getBannerList() throws IOException {
+        List<BannerBean> bannerBeans = FileUtils.readFileToListBean("data" + File.separator + "my_csdn" + File.separator + "banner.data", BannerBean.class);
         return bannerBeans;
     }
 
     /* ===========================  notices 数据 =========================== */
 
-    public NoticeBean createNoticeBean() {
-        NoticeBean noticeBean = new NoticeBean();
-        int anInt = random.nextInt(CSDNStaticData.noticesIds.length);
-        noticeBean.id = CSDNStaticData.noticesIds[anInt];
-        noticeBean.title = CSDNStaticData.notices[anInt];
-        noticeBean.url = CSDNStaticData.noticeUrls[anInt];
-        return noticeBean;
-    }
-
-    public List<NoticeBean> createNoticeBeanList(int count) {
-        if (count > CSDNStaticData.notices.length)
-            count = CSDNStaticData.notices.length;
-
-        List<NoticeBean> noticeBeans = new ArrayList<>();
-        while (noticeBeans.size() < count) {
-            NoticeBean noticeBean = createNoticeBean();
-            if (!noticeBeans.contains(noticeBean))
-                noticeBeans.add(noticeBean);
-        }
+    public List<NoticeBean> getNoticesList() throws IOException {
+        List<NoticeBean> noticeBeans = FileUtils.readFileToListBean("data" + File.separator + "my_csdn" + File.separator + "notices.data", NoticeBean.class);
         return noticeBeans;
     }
 
@@ -89,10 +51,6 @@ public class CSDNDataFactory {
             return CSDNStaticData.listIds.length / pageSize;
 
         return CSDNStaticData.listIds.length / pageSize + 1;
-    }
-
-    public ListBean createListBean() {
-        return createListBean(random.nextInt(CSDNStaticData.titles.length));
     }
 
     public ListBean createListBean(int index) {

@@ -28,17 +28,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class CSDNController {
 
     @Autowired
-    private CSDNService CSDNService;
+    private CSDNService csdnService;
 
     @GetMapping("/index")
     public BaseResponseBean csdnBannerAndNotices() {
-        return CSDNService.csdnBannerAndNotices();
+        return csdnService.csdnBannerAndNotices();
     }
 
     @GetMapping("/list")
     public BaseResponseBean csdnList(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize) {
         if (pageNo <= 0 || pageSize <= 0)
             return ResponseFactory.paramsExceptionResponse();
-        return CSDNService.csdnList(pageNo, pageSize);
+        return csdnService.csdnList(pageNo, pageSize);
     }
 }

@@ -1,0 +1,44 @@
+{"pid":2,"id":1,"title":"GeekNews","content":"Forked from codeestX/GeekNews A pure reading App based on Material Design + MVP + RxJava2 + Retrofit + Dagger2 + Realm + Glide","url":"https://github.com/itrenjunhua/GeekNews","images":[]}
+{"pid":2,"id":2,"title":"FloatingMenu","content":"Android 浮动菜单效果","url":"https://github.com/itrenjunhua/FloatingMenu","images":[]}
+{"pid":2,"id":3,"title":"AndPermission","content":"Forked from yanzhenjie/AndPermission Android Runtime Permission，support the right to apply for permission at any place.","url":"https://github.com/itrenjunhua/AndPermission","images":[]}
+{"pid":2,"id":4,"title":"MoneyView","content":"金额输入框，可以自定义小数点所在的位置和小数点后的小数位数","url":"https://github.com/itrenjunhua/MoneyView","images":[]}
+{"pid":2,"id":5,"title":"ARouter","content":"Forked from alibaba/ARouter A android router middleware that help app navigating to activities and custom ","url":"https://github.com/itrenjunhua/ARouter","images":[]}
+{"pid":2,"id":6,"title":"WaveView","content":"Android自定义控件实现动态百分比水波纹效果","url":"https://github.com/itrenjunhua/WaveView","images":[]}
+{"pid":2,"id":7,"title":"XEditText","content":"自动格式化输入内容的EditText，同时可以指定格式化的模板","url":"https://github.com/itrenjunhua/XEditText","images":[]}
+{"pid":2,"id":8,"title":"RxJava2Operator","content":"RxJava2 常用操作符代码示例","url":"https://github.com/itrenjunhua/RxJava2Operator","images":[]}
+{"pid":2,"id":9,"title":"FingerprintDemo","content":"Android指纹验证Demo","url":"https://github.com/itrenjunhua/FingerprintDemo","images":[]}
+{"pid":2,"id":10,"title":"BluetoothChatDemo","content":"Android蓝牙聊天Demo","url":"https://github.com/itrenjunhua/BluetoothChatDemo","images":[]}
+{"pid":2,"id":11,"title":"android-zxingLibrary","content":"Forked from yipianfengye/android-zxingLibrary 几行代码快速集成二维码扫描功能","url":"https://github.com/itrenjunhua/android-zxingLibrary","images":[]}
+{"pid":2,"id":11,"title":"Fragmentation","content":"Forked from YoKeyword/Fragmentation A powerful library that manage Fragment for Android!","url":"https://github.com/itrenjunhua/Fragmentation","images":[]}
+{"pid":2,"id":11,"title":"TvRecyclerView","content":"Forked from henryblue/TvRecyclerView A custom RecyclerView for Android TV end","url":"https://github.com/itrenjunhua/TvRecyclerView","images":[]}
+{"pid":2,"id":14,"title":"RActivityResult","content":"对 startActivityForResult()打开Activity，重写 onActivityResult() 方法获取数据的方式进行封装，避免重写 onActivityResult() 方法","url":"https://github.com/itrenjunhua/RActivityResult","images":[]}
+{"pid":2,"id":15,"title":"RKActivityResult","content":"对 startActivityForResult()打开Activity，重写 onActivityResult() 方法获取数据的方式进行封装，避免重写 onActivityResult() 方法。使用 Kotlin 实现","url":"https://github.com/itrenjunhua/RKActivityResult","images":[]}
+{"pid":2,"id":16,"title":"Android-PickerView","content":"Forked from Bigkoo/Android-PickerView This is a picker view for android , support linkage effect, timepicker and optionspicker.（时间选择器、省市区三级联动）","url":"https://github.com/itrenjunhua/Android-PickerView","images":[]}
+{"pid":2,"id":17,"title":"echarts-for-weixin","content":"Forked from ecomfe/echarts-for-weixin ECharts 的微信小程序版本","url":"https://github.com/itrenjunhua/echarts-for-weixin","images":[]}
+{"pid":2,"id":18,"title":"picasso-transformations","content":"Forked from wasabeef/picasso-transformations An Android transformation library providing a variety of image transformations for Picasso","url":"https://github.com/itrenjunhua/picasso-transformations","images":[]}
+{"pid":2,"id":19,"title":"chinese-poetry","content":"Forked from chinese-poetry/chinese-poetry 最全中华古诗词数据库, 唐宋两朝近一万四千古诗人, 接近5.5万首唐诗加26万宋诗. 两宋时期1564位词人，21050首词。","url":"https://github.com/itrenjunhua/chinese-poetry","images":[]}
+{"pid":2,"id":20,"title":"RMqttAndroidServer","content":"Android MQTT 使用","url":"https://github.com/itrenjunhua/RMqttAndroidServer","images":[]}
+{"pid":2,"id":21,"title":"SwipeToLoadLayout","content":"Forked from Aspsine/SwipeToLoadLayout A reusable pull-to-refresh and pull-to-loadmore widget","url":"https://github.com/itrenjunhua/SwipeToLoadLayout","images":[]}
+{"pid":2,"id":22,"title":"android-architecture","content":"Forked from googlesamples/android-architecture A collection of samples to discuss and showcase different architectural tools and patterns for Android apps.","url":"https://github.com/itrenjunhua/android-architecture","images":[]}
+{"pid":2,"id":22,"title":"AndroidDataBinding","content":"Android DataBinding 使用","url":"https://github.com/itrenjunhua/AndroidDataBinding","images":[]}
+{"pid":2,"id":24,"title":"AndroidAutoSize","content":"Forked from JessYanCoding/AndroidAutoSize  A low-cost Android screen adaptation solution (今日头条屏幕适配方案终极版，一个极低成本的 Android 屏幕适配方案).","url":"https://github.com/itrenjunhua/AndroidAutoSize","images":[]}
+{"pid":2,"id":25,"title":"MyOkHttp","content":"对okhttp网络框架的进一步封装","url":"https://github.com/itrenjunhua/MyOkHttp","images":[]}
+{"pid":2,"id":26,"title":"RVolleyTest","content":"Android 网络框架 Volley 二次封装","url":"https://github.com/itrenjunhua/RVolleyTest","images":[]}
+{"pid":2,"id":27,"title":"MyHightLight","content":"Android新应用操作引导代码","url":"https://github.com/itrenjunhua/MyHightLight","images":[]}
+{"pid":2,"id":28,"title":"CacheUtils","content":"Android 文件缓存代码库","url":"https://github.com/itrenjunhua/CacheUtils","images":[]}
+{"pid":2,"id":29,"title":"screen","content":"Android 屏幕适配自动生成values文件夹以及对应的lay-x、lay-y文件","url":"https://github.com/itrenjunhua/screen","images":[]}
+{"pid":2,"id":30,"title":"MPAndroidChart","content":"Forked from PhilJay/MPAndroidChart A powerful Android chart view / graph view library, supporting line- bar- pie- radar- bubble- and candlestick charts as well as scaling, dragging and animations.","url":"https://github.com/itrenjunhua/MPAndroidChart","images":[]}
+{"pid":2,"id":31,"title":"glide-transformations","content":"Forked from wasabeef/glide-transformations An Android transformation library providing a variety of image transformations for Glide.","url":"https://github.com/itrenjunhua/glide-transformations","images":[]}
+{"pid":2,"id":32,"title":"awesome-adb","content":"Forked from mzlogin/awesome-adb ADB Usage Complete / ADB 用法大全","url":"https://github.com/itrenjunhua/awesome-adb","images":[]}
+{"pid":2,"id":33,"title":"banner","content":"Forked from youth5201314/banner Android广告图片轮播控件，支持无限循环和多种主题，可以灵活设置轮播样式、动画、轮播和切换时间、位置、图片加载框架等！","url":"https://github.com/itrenjunhua/banner","images":[]}
+{"pid":2,"id":34,"title":"MagicIndicator","content":"Forked from hackware1993/MagicIndicator A powerful, customizable and extensible ViewPager indicator framework. As the best alternative of ViewPagerIndicator, TabLayout and PagerSlidingTabStrip —— 强大、可定制、易扩展的 ViewPager 指示器框架。","url":"https://github.com/itrenjunhua/MagicIndicator","images":[]}
+{"pid":2,"id":35,"title":"ImageLoader","content":"对图片加载框架二次封装，方便更换底层框架","url":"https://github.com/itrenjunhua/ImageLoader","images":[]}
+{"pid":2,"id":36,"title":"WXUtils","content":"微信小程序常用工具类","url":"https://github.com/itrenjunhua/WXUtils","images":[]}
+{"pid":2,"id":37,"title":"ImageSelect","content":"Android 图片选择、裁剪","url":"https://github.com/itrenjunhua/ImageSelect","images":[]}
+{"pid":2,"id":38,"title":"PercentChartDemo","content":"通过百分比填充颜色图表(睡眠质量分布图)","url":"https://github.com/itrenjunhua/PercentChartDemo","images":[]}
+{"pid":2,"id":39,"title":"AndroidUtils","content":"Android 常用工具类集合","url":"https://github.com/itrenjunhua/AndroidUtils","images":[]}
+{"pid":2,"id":40,"title":"RRecyclerView","content":"RecyclerView 常用示例，以及 Adapter 和 ItemDecoration 封装","url":"https://github.com/itrenjunhua/RRecyclerView","images":[]}
+{"pid":2,"id":41,"title":"JiaoZiVideoPlayer","content":"Forked from lipangit/JiaoZiVideoPlayer Android VideoPlayer MediaPlayer VideoView MediaView Float View And Fullscreen.高度自定义的开源安卓视频框架","url":"https://github.com/itrenjunhua/JiaoZiVideoPlayer","images":[]}
+{"pid":2,"id":42,"title":"ApplicationDataProvider","content":"应用数据提供服务","url":"https://github.com/itrenjunhua/ApplicationDataProvider","images":[]}
+{"pid":2,"id":43,"title":"RPageStatusController","content":"页面状态控制框架","url":"https://github.com/itrenjunhua/RPageStatusController","images":[]}
+{"pid":2,"id":44,"title":"MyMVP","content":"快速搭建Android MVP框架","url":"https://github.com/itrenjunhua/MyMVP","images":[]}

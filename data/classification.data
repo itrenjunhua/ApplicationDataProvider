@@ -1,0 +1,6 @@
+{"id":1,"desc":"my_csdn","label":"我的CSDN","total":54,"file":"data/my_csdn/list.data"}
+{"id":2,"desc":"my_github","label":"我的GitHub","total":44,"file":"data/my_github/list.data"}
+{"id":3,"desc":"csdn","label":"CSDN","total":0,"file":"data/csdn/list.data"}
+{"id":4,"desc":"github","label":"GitHub","total":0,"file":"data/github/list.data"}
+{"id":5,"desc":"jianshu","label":"简书","total":0,"file":"data/jianshu/list.data"}
+{"id":6,"desc":"android_bus","label":"Android巴士","total":0,"file":"data/android_bus/list.data"}

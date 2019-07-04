@@ -5,6 +5,7 @@ import com.renj.provider.bean.ListBean;
 import com.renj.provider.bean.NoticeBean;
 import com.renj.provider.data.CSDNDataFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -23,42 +24,31 @@ import java.util.List;
  */
 
 public class CSDNDao {
-    private com.renj.provider.data.CSDNDataFactory CSDNDataFactory;
+    private CSDNDataFactory csdnDataFactory;
 
     public CSDNDao() {
-        CSDNDataFactory = new CSDNDataFactory();
+        csdnDataFactory = new CSDNDataFactory();
     }
 
-    public BannerBean createBanner() {
-        return CSDNDataFactory.createBanner();
+    public List<BannerBean> createBannerList() throws IOException {
+        return csdnDataFactory.getBannerList();
     }
 
-    public List<BannerBean> createBannerList(int count) {
-        return CSDNDataFactory.createBannerList(count);
-    }
 
-    public NoticeBean createNoticeBean() {
-        return CSDNDataFactory.createNoticeBean();
-    }
-
-    public List<NoticeBean> createNoticeBeanList(int count) {
-        return CSDNDataFactory.createNoticeBeanList(count);
+    public List<NoticeBean> createNoticeBeanList() throws IOException {
+        return csdnDataFactory.getNoticesList();
     }
 
 
     public int getListTotal() {
-        return CSDNDataFactory.getListTotal();
+        return csdnDataFactory.getListTotal();
     }
 
     public int getListPage(int pageSize) {
-        return CSDNDataFactory.getListPage(pageSize);
-    }
-
-    public ListBean createListBean() {
-        return CSDNDataFactory.createListBean();
+        return csdnDataFactory.getListPage(pageSize);
     }
 
     public List<ListBean> createListBeanList(int pageNo,int pageSize) {
-        return CSDNDataFactory.createListBeanList(pageNo,pageSize);
+        return csdnDataFactory.createListBeanList(pageNo,pageSize);
     }
 }

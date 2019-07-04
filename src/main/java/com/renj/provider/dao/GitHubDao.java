@@ -1,8 +1,11 @@
 package com.renj.provider.dao;
 
+import com.renj.provider.bean.BannerBean;
 import com.renj.provider.bean.ListBean;
+import com.renj.provider.bean.NoticeBean;
 import com.renj.provider.data.GitHubDataFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -24,6 +27,15 @@ public class GitHubDao {
 
     public GitHubDao() {
         this.gitHubDataFactory = new GitHubDataFactory();
+    }
+
+    public List<BannerBean> createBannerList() throws IOException {
+        return gitHubDataFactory.getBannerList();
+    }
+
+
+    public List<NoticeBean> createNoticeBeanList() throws IOException {
+        return gitHubDataFactory.getNoticesList();
     }
 
     public int getTotal() {

@@ -5,9 +5,9 @@ import com.renj.provider.dao.CSDNDao;
 import com.renj.provider.utils.ResponseFactory;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * ======================================================================
@@ -32,11 +32,15 @@ public class CSDNService {
     }
 
     public BaseResponseBean csdnBannerAndNotices() {
-        Random random = new Random();
         Map<String, Object> map = new HashMap<>();
-        map.put("banner", CSDNDao.createBannerList(random.nextInt(6) + 1));
-        map.put("notice", CSDNDao.createNoticeBeanList(random.nextInt(5) + 1));
-        return ResponseFactory.successResponse(map);
+        try {
+            map.put("banner", CSDNDao.createBannerList());
+            map.put("notice", CSDNDao.createNoticeBeanList());
+            return ResponseFactory.successResponse(map);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseFactory.handlerExceptionResponse();
+        }
     }
 
     public BaseResponseBean csdnList(int pageNo, int pageSize) {
