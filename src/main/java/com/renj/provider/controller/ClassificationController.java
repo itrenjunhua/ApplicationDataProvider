@@ -1,5 +1,7 @@
 package com.renj.provider.controller;
 
+import com.renj.provider.bean.ClassificationBean;
+import com.renj.provider.bean.ListBean;
 import com.renj.provider.bean.base.BaseResponseBean;
 import com.renj.provider.service.ClassificationService;
 import com.renj.provider.utils.ResponseFactory;
@@ -11,6 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,14 +40,31 @@ public class ClassificationController {
     private ClassificationService classificationService;
 
     @ApiOperation("获取分类列表")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "token", value = "token", dataType = "String", paramType = "query", required = true)
-    })
     @GetMapping("/index")
-    public BaseResponseBean classificationBean(HttpServletRequest request) {
+    public BaseResponseBean<ClassificationBean> classificationBean(HttpServletRequest request) {
         if (!TokenManager.getInstance().tokenCheck(request))
             return ResponseFactory.tokenExceptionResponse();
 
         return classificationService.getClassificationBean();
+    }
+
+    @ApiOperation("获取分类页列表数据")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pid", value = "分类父id", dataType = "int", paramType = "query", required = true),
+            @ApiImplicitParam(name = "pageNo", value = "页数", dataType = "int", paramType = "query", required = true),
+            @ApiImplicitParam(name = "pageSize", value = "每页大小", dataType = "int", paramType = "query", required = true)
+    })
+    @GetMapping("/list")
+    public BaseResponseBean<ListBean> getClassificationListBean(HttpServletRequest request,
+                                                                @RequestParam("pid") Integer pid,
+                                                                @RequestParam("pageNo") Integer pageNo,
+                                                                @RequestParam("pageSize") Integer pageSize) {
+        if (!TokenManager.getInstance().tokenCheck(request))
+            return ResponseFactory.tokenExceptionResponse();
+
+        if (pageNo <= 0 || pageSize <= 0)
+            return ResponseFactory.paramsExceptionResponse();
+
+        return classificationService.getClassificationListBean(pid, pageNo, pageSize);
     }
 }

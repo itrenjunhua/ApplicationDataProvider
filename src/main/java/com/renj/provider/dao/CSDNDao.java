@@ -30,11 +30,11 @@ public class CSDNDao {
         csdnDataFactory = new CSDNDataFactory();
     }
 
-    public List<BannerBean> createBannerList() throws IOException {
+    public List<BannerBean> getBannerList() throws IOException {
         return csdnDataFactory.getBannerList();
     }
 
-    public List<NoticeBean> createNoticeBeanList() throws IOException {
+    public List<NoticeBean> getNoticeBeanList() throws IOException {
         return csdnDataFactory.getNoticesList();
     }
 
@@ -47,7 +47,7 @@ public class CSDNDao {
         return csdnDataFactory.getListTotalAndPage(pageSize);
     }
 
-    public List<ListBean> createListBeanList(int pageNo,int pageSize) throws IOException {
-        return csdnDataFactory.createListBeanList(pageNo,pageSize);
+    public List<ListBean> getListBeanList(int pageNo,int pageSize) throws IOException {
+        return csdnDataFactory.getListBeanList(pageNo,pageSize);
     }
 }

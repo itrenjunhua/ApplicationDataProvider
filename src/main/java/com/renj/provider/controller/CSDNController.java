@@ -1,5 +1,6 @@
 package com.renj.provider.controller;
 
+import com.renj.provider.bean.ListBean;
 import com.renj.provider.bean.base.BaseResponseBean;
 import com.renj.provider.service.CSDNService;
 import com.renj.provider.utils.ResponseFactory;
@@ -39,9 +40,6 @@ public class CSDNController {
     private CSDNService csdnService;
 
     @ApiOperation("获取我的CSDN页面banner数据和公告数据")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "token", value = "token", dataType = "String", paramType = "query", required = true)
-    })
     @GetMapping("/index")
     public BaseResponseBean csdnBannerAndNotices(HttpServletRequest request) {
         if (!TokenManager.getInstance().tokenCheck(request))
@@ -52,14 +50,13 @@ public class CSDNController {
 
     @ApiOperation("获取我的CSDN页列表数据")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "token", value = "token", dataType = "String", paramType = "query", required = true),
             @ApiImplicitParam(name = "pageNo", value = "页数", dataType = "int", paramType = "query", required = true),
             @ApiImplicitParam(name = "pageSize", value = "每页大小", dataType = "int", paramType = "query", required = true)
     })
     @GetMapping("/list")
-    public BaseResponseBean csdnList(HttpServletRequest request,
-                                     @RequestParam("pageNo") Integer pageNo,
-                                     @RequestParam("pageSize") Integer pageSize) {
+    public BaseResponseBean<ListBean> csdnList(HttpServletRequest request,
+                                               @RequestParam("pageNo") Integer pageNo,
+                                               @RequestParam("pageSize") Integer pageSize) {
         if (!TokenManager.getInstance().tokenCheck(request))
             return ResponseFactory.tokenExceptionResponse();
 

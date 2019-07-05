@@ -1,5 +1,10 @@
 package com.renj.provider.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * ======================================================================
  * <p>
@@ -14,6 +19,9 @@ package com.renj.provider.bean;
  * <p>
  * ======================================================================
  */
+@ApiModel(value = "分类对象", description = "分类对象")
+@Getter
+@Setter
 public class ClassificationBean {
 
     /**
@@ -22,10 +30,25 @@ public class ClassificationBean {
      * total : 54
      * file : data/my_csdn/list.data
      */
+    @ApiModelProperty(value = "分类项id")
+    private int id;
+    @ApiModelProperty(value = "分类项描述")
+    private String desc;
+    @ApiModelProperty(value = "分类项标签")
+    private String label;
+    @ApiModelProperty(value = "分类项纪录条数")
+    private int total;
+    @ApiModelProperty(value = "分类项数据保存位置", hidden = true)
+    private String file;
 
-    public int id;
-    public String desc;
-    public String label;
-    public int total;
-    public String file;
+    @Override
+    public String toString() {
+        return "ClassificationBean{" +
+                "id=" + id +
+                ", desc='" + desc + '\'' +
+                ", label='" + label + '\'' +
+                ", total=" + total +
+                ", file='" + file + '\'' +
+                '}';
+    }
 }

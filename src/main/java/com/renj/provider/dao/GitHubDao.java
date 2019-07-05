@@ -29,11 +29,11 @@ public class GitHubDao {
         this.gitHubDataFactory = new GitHubDataFactory();
     }
 
-    public List<BannerBean> createBannerList() throws IOException {
+    public List<BannerBean> getBannerList() throws IOException {
         return gitHubDataFactory.getBannerList();
     }
 
-    public List<NoticeBean> createNoticeBeanList() throws IOException {
+    public List<NoticeBean> getNoticeBeanList() throws IOException {
         return gitHubDataFactory.getNoticesList();
     }
 
@@ -46,7 +46,7 @@ public class GitHubDao {
         return gitHubDataFactory.getListTotalAndPage(pageSize);
     }
 
-    public List<ListBean> createListBeanList(int pageNo, int pageSize) throws IOException {
-        return gitHubDataFactory.createListBeanList(pageNo, pageSize);
+    public List<ListBean> getListBeanList(int pageNo, int pageSize) throws IOException {
+        return gitHubDataFactory.getListBeanList(pageNo, pageSize);
     }
 }

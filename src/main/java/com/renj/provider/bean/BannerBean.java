@@ -1,5 +1,10 @@
 package com.renj.provider.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * ======================================================================
  * <p>
@@ -14,6 +19,9 @@ package com.renj.provider.bean;
  * <p>
  * ======================================================================
  */
+@ApiModel(value = "banner对象", description = "banner对象")
+@Getter
+@Setter
 public class BannerBean {
 
     /**
@@ -23,9 +31,13 @@ public class BannerBean {
      * clickResult : 点击banner图1
      */
 
-    public int id;
-    public String title;
-    public String image;
-    public String url;
+    @ApiModelProperty(value = "banner id")
+    private int id;
+    @ApiModelProperty(value = "banner 标题")
+    private String title;
+    @ApiModelProperty(value = "banner 图片链接")
+    private String image;
+    @ApiModelProperty(value = "banner 点击显示网页链接")
+    private String url;
 
 }

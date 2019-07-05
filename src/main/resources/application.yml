@@ -1,6 +1,8 @@
 logging:
   #日志保存位置
   #file: "logs/config/demo-xx.log"
+  level:
+    io.swagger.models.parameters.AbstractSerializableParameter: error
 info:
   name : "我的应用数据提供服务器"
 

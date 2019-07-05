@@ -1,5 +1,9 @@
 package com.renj.provider.bean.base;
 
+import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * ======================================================================
  * <p>
@@ -14,11 +18,14 @@ package com.renj.provider.bean.base;
  * <p>
  * ======================================================================
  */
+@ApiModel
+@Getter
+@Setter
 public class BaseResponseBean<T> {
 
-    public String message;
-    public int code;
-    public T data;
+    private String message;
+    private int code;
+    private T data;
 
     public BaseResponseBean(int code, String message, T data) {
         this.code = code;

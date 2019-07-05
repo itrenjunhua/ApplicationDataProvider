@@ -31,7 +31,7 @@ public class CSDNService {
 
     public BaseResponseBean csdnBannerAndNotices() {
         try {
-            return ServiceHelp.getBannerAndNotices(csdnDao.createBannerList(), csdnDao.createNoticeBeanList());
+            return ServiceHelp.getBannerAndNotices(csdnDao.getBannerList(), csdnDao.getNoticeBeanList());
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseFactory.handlerExceptionResponse();
@@ -40,7 +40,7 @@ public class CSDNService {
 
     public BaseResponseBean csdnList(int pageNo, int pageSize) {
         try {
-            return ServiceHelp.getListBean(csdnDao.getListTotalAndPage(pageSize), csdnDao.createListBeanList(pageNo, pageSize));
+            return ServiceHelp.getListBean(csdnDao.getListTotalAndPage(pageSize), csdnDao.getListBeanList(pageNo, pageSize));
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseFactory.handlerExceptionResponse();

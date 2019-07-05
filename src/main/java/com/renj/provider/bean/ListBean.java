@@ -1,5 +1,10 @@
 package com.renj.provider.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
@@ -16,6 +21,9 @@ import java.util.List;
  * <p>
  * ======================================================================
  */
+@ApiModel(value = "列表对象", description = "列表对象")
+@Getter
+@Setter
 public class ListBean {
 
     /**
@@ -24,12 +32,18 @@ public class ListBean {
      * url :
      */
 
-    public int pid;
-    public int id;
-    public String title;
-    public String content;
-    public String url;
-    public List<String> images;
+    @ApiModelProperty(value = "列表数据分类id")
+    private int pid;
+    @ApiModelProperty(value = "列表数据id")
+    private int id;
+    @ApiModelProperty(value = "列表数据标题")
+    private String title;
+    @ApiModelProperty(value = "列表数据简介")
+    private String content;
+    @ApiModelProperty(value = "列表数据内容详细地址")
+    private String url;
+    @ApiModelProperty(value = "列表数据相关图片")
+    private List<String> images;
 
     @Override
     public String toString() {

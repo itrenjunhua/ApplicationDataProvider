@@ -1,5 +1,10 @@
 package com.renj.provider.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * ======================================================================
  * <p>
@@ -14,6 +19,9 @@ package com.renj.provider.bean;
  * <p>
  * ======================================================================
  */
+@ApiModel(value = "公告对象", description = "公告对象")
+@Getter
+@Setter
 public class NoticeBean {
 
     /**
@@ -21,8 +29,11 @@ public class NoticeBean {
      * url : banner_url
      */
 
-    public int id;
-    public String title;
-    public String url;
+    @ApiModelProperty(value = "公告 id")
+    private int id;
+    @ApiModelProperty(value = "公告标题")
+    private String title;
+    @ApiModelProperty(value = "公告点击显示网页链接")
+    private String url;
 
 }

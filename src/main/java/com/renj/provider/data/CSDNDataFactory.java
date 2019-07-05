@@ -52,12 +52,12 @@ public class CSDNDataFactory {
         return FactoryHelp.getListTotalAndPage(MY_CSDN_PID, pageSize);
     }
 
-    public List<ListBean> createListBeanList(int pageNo, int pageSize) throws IOException {
-        return FactoryHelp.createListBeanList(MY_CSDN_PID,FILE_DIR,pageNo,pageSize);
+    public List<ListBean> getListBeanList(int pageNo, int pageSize) throws IOException {
+        return FactoryHelp.getListBeanList(MY_CSDN_PID, FILE_DIR + File.separator + "list.data", pageNo, pageSize);
     }
 
     public static void main(String[] args) throws IOException {
-        List<ListBean> listBeans = new CSDNDataFactory().createListBeanList(4, 10);
+        List<ListBean> listBeans = new CSDNDataFactory().getListBeanList(4, 10);
         for (ListBean listBean : listBeans) {
             System.out.println(listBean);
         }

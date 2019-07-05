@@ -4,7 +4,6 @@ import com.renj.provider.bean.ClassificationBean;
 import com.renj.provider.bean.ListBean;
 import com.renj.provider.utils.FileUtils;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -46,18 +45,18 @@ public class FactoryHelp {
         int[] result = new int[2];
         List<ClassificationBean> classificationBean = getClassificationBean();
         for (ClassificationBean bean : classificationBean) {
-            if (bean.id == pid) {
-                result[0] = bean.total;
-                if (bean.total % pageSize == 0)
-                    result[1] = bean.total / pageSize;
+            if (bean.getId() == pid) {
+                result[0] = bean.getTotal();
+                if (bean.getTotal() % pageSize == 0)
+                    result[1] = bean.getTotal() / pageSize;
                 else
-                    result[1] = bean.total / pageSize + 1;
+                    result[1] = bean.getTotal() / pageSize + 1;
             }
         }
         return result;
     }
 
-    static List<ListBean> createListBeanList(int pid,String fileDir,int pageNo, int pageSize) throws IOException {
+    static List<ListBean> getListBeanList(int pid,String fileDir,int pageNo, int pageSize) throws IOException {
         int[] listTotalAndPage = getListTotalAndPage(pid,pageSize);
         int total = listTotalAndPage[0];
 
@@ -74,7 +73,7 @@ public class FactoryHelp {
         if (endIndex < 0)
             endIndex = 0;
 
-        List<ListBean> listBeans = FileUtils.readFileToListBean(fileDir + File.separator + "list.data", startIndex, endIndex, ListBean.class);
+        List<ListBean> listBeans = FileUtils.readFileToListBean(fileDir, startIndex, endIndex, ListBean.class);
         return listBeans;
     }
 }

@@ -4,11 +4,18 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Parameter;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger.web.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ======================================================================
@@ -28,15 +35,27 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class Swagger2Config {
     @Bean
     public Docket createRestApi() {
+        // ---------------- 添加head参数start ---------------- //
+        ParameterBuilder tokenPar = new ParameterBuilder();
+        List<Parameter> pars = new ArrayList<>();
+        tokenPar.name("token")
+                .description("AccessToken令牌")
+                .modelRef(new ModelRef("string"))
+                .parameterType("header").required(false)
+                .build();
+        pars.add(tokenPar.build());
+        // ---------------- 添加head参数end ---------------- //
+
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
                 // 扫描指定包中的swagger注解
                 // .apis(RequestHandlerSelectors.basePackage("com.renj.provider"))
-                // 扫描所有有注解的api，用这种方式更灵活
+                // 扫描所有有注解的api
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .globalOperationParameters(pars);
     }
 
     private ApiInfo apiInfo() {
@@ -46,5 +65,12 @@ public class Swagger2Config {
                 .termsOfServiceUrl("https://github.com/itrenjunhua/ApplicationDataProvider")
                 .version("1.0.0")
                 .build();
+    }
+
+    @Bean
+    UiConfiguration uiConfig() {
+        return new UiConfiguration(true, false, -1, -1,
+                ModelRendering.MODEL, true, DocExpansion.LIST, null, null,
+                OperationsSorter.ALPHA, true, TagsSorter.ALPHA, null);
     }
 }

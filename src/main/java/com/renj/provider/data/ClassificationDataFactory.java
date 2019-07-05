@@ -1,7 +1,10 @@
 package com.renj.provider.data;
 
 import com.renj.provider.bean.ClassificationBean;
+import com.renj.provider.bean.ListBean;
+import com.renj.provider.utils.CheckUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -28,5 +31,35 @@ public class ClassificationDataFactory {
      */
     public List<ClassificationBean> getClassificationBean() throws IOException {
         return FactoryHelp.getClassificationBean();
+    }
+
+    /* ===========================  list 数据 =========================== */
+
+    /**
+     * 获取列表的总数和页数
+     *
+     * @return int[] result[0]：总数 result[1]：页数
+     */
+    public int[] getListTotalAndPage(int pid, int pageSize) throws IOException {
+        return FactoryHelp.getListTotalAndPage(pid, pageSize);
+    }
+
+    public List<ListBean> getClassificationListBean(int pid, int pageNo, int pageSize) throws IOException {
+        List<ClassificationBean> classificationBean = getClassificationBean();
+        String filePath = null;
+        for (ClassificationBean bean : classificationBean) {
+                System.out.println(pid);
+                System.out.println(bean);
+            if (bean.getId() == pid) {
+                filePath = bean.getFile();
+                break;
+            }
+        }
+        if (!CheckUtils.isEmpty(filePath))
+            filePath = filePath.replace("/", File.separator);
+        else
+            throw new IOException("获取分类信息失败(get classification fail)");
+
+        return FactoryHelp.getListBeanList(pid, filePath, pageNo, pageSize);
     }
 }

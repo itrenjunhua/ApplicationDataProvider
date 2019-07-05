@@ -31,7 +31,7 @@ public class GitHubService {
 
     public BaseResponseBean githubBannerAndNotices() {
         try {
-            return ServiceHelp.getBannerAndNotices(gitHubDao.createBannerList(), gitHubDao.createNoticeBeanList());
+            return ServiceHelp.getBannerAndNotices(gitHubDao.getBannerList(), gitHubDao.getNoticeBeanList());
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseFactory.handlerExceptionResponse();
@@ -40,7 +40,7 @@ public class GitHubService {
 
     public BaseResponseBean githubList(int pageNo, int pageSize) {
         try {
-            return ServiceHelp.getListBean(gitHubDao.getListTotalAndPage(pageSize), gitHubDao.createListBeanList(pageNo, pageSize));
+            return ServiceHelp.getListBean(gitHubDao.getListTotalAndPage(pageSize), gitHubDao.getListBeanList(pageNo, pageSize));
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseFactory.handlerExceptionResponse();

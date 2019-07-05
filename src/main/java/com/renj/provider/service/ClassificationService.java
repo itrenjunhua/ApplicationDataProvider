@@ -37,4 +37,13 @@ public class ClassificationService {
             return ResponseFactory.handlerExceptionResponse();
         }
     }
+
+    public BaseResponseBean getClassificationListBean(int pid, int pageNo, int pageSize) {
+        try {
+            return ServiceHelp.getListBean(classificationDao.getListTotalAndPage(pid,pageSize),classificationDao.getClassificationListBean(pid, pageNo, pageSize));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseFactory.handlerExceptionResponse();
+        }
+    }
 }
