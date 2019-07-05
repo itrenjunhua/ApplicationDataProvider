@@ -3,8 +3,6 @@ package com.renj.provider.controller;
 import com.renj.provider.bean.ListBean;
 import com.renj.provider.bean.base.BaseResponseBean;
 import com.renj.provider.service.GitHubService;
-import com.renj.provider.utils.ResponseFactory;
-import com.renj.provider.utils.TokenManager;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -33,7 +31,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Api(tags = "我的GitHub页面接口")
 @RestController
-@RequestMapping("/github")
+@RequestMapping("/app/github")
 public class GitHubController {
     @Autowired
     private GitHubService gitHubService;
@@ -41,9 +39,6 @@ public class GitHubController {
     @ApiOperation("获取我的GitHub页面banner数据和公告数据")
     @GetMapping("/index")
     public BaseResponseBean csdnBannerAndNotices(HttpServletRequest request) {
-        if (!TokenManager.getInstance().tokenCheck(request))
-            return ResponseFactory.tokenExceptionResponse();
-
         return gitHubService.githubBannerAndNotices();
     }
 
@@ -56,11 +51,6 @@ public class GitHubController {
     public BaseResponseBean<ListBean> githubList(HttpServletRequest request,
                                                  @RequestParam("pageNo") Integer pageNo,
                                                  @RequestParam("pageSize") Integer pageSize) {
-        if (!TokenManager.getInstance().tokenCheck(request))
-            return ResponseFactory.tokenExceptionResponse();
-
-        if (pageNo <= 0 || pageSize <= 0)
-            return ResponseFactory.paramsExceptionResponse();
         return gitHubService.githubList(pageNo, pageSize);
     }
 }

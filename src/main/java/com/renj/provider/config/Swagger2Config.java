@@ -1,8 +1,9 @@
-package com.renj.provider;
+package com.renj.provider.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -13,6 +14,7 @@ import springfox.documentation.service.Parameter;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger.web.*;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,14 +27,17 @@ import java.util.List;
  * <p>
  * 创建时间：2019-07-05  01:59
  * <p>
- * 描述：
+ * 描述：Swagger2 配置
  * <p>
  * 修订历史：
  * <p>
  * ======================================================================
  */
 @Configuration
+@EnableSwagger2
+@Profile({"dev", "test"})
 public class Swagger2Config {
+
     @Bean
     public Docket createRestApi() {
         // ---------------- 添加head参数start ---------------- //
@@ -50,7 +55,7 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .select()
                 // 扫描指定包中的swagger注解
-                // .apis(RequestHandlerSelectors.basePackage("com.renj.provider"))
+                // .apis(RequestHandlerSelectors.basePackage("com.renj.provider.bean"))
                 // 扫描所有有注解的api
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())

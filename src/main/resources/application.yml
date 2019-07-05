@@ -1,11 +1,13 @@
-logging:
-  #日志保存位置
-  #file: "logs/config/demo-xx.log"
-  level:
-    io.swagger.models.parameters.AbstractSerializableParameter: error
-info:
-  name : "我的应用数据提供服务器"
+spring:
+  profiles:
+    active: dev
 
-server:
-  # 端口
-  port: 8888
+  application:
+    name: 我的应用数据提供服务器
+
+
+# 请求处理的超时时间
+ribbon:
+  ReadTimeout:  120000
+  # 请求连接的超时时间
+  ConnectTimeout: 30000

@@ -11,5 +11,4 @@ public class DataProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(DataProviderApplication.class, args);
     }
-
 }

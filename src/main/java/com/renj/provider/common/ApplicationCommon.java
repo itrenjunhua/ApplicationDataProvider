@@ -1,12 +1,12 @@
-package com.renj.provider.bean.base;
+package com.renj.provider.common;
 
 /**
  * ======================================================================
  * <p>
  * 作者：Renj
- * 邮箱：itrenjunhua@163.com
+ * 邮箱：renjunhua@anlovek.com
  * <p>
- * 创建时间：2019-06-28   14:49
+ * 创建时间：2019-07-04   17:40
  * <p>
  * 描述：
  * <p>
@@ -14,7 +14,17 @@ package com.renj.provider.bean.base;
  * <p>
  * ======================================================================
  */
-public interface IResponseValue {
+public interface ApplicationCommon {
+    /**
+     * 数据根目录
+     */
+    String ROOT_DIR = "data";
+
+    /**
+     * token缓存更新间隔时间
+     */
+    long TOKEN_REFRESH_TIME = 1000 * 60;
+
     /**
      * 成功
      */
@@ -24,7 +34,7 @@ public interface IResponseValue {
      * 参数异常
      */
     int CODE_PARAMS_EXCEPTION = 300;
-    String MESSAGE_PARAMS_EXCEPTION = "params_exception";
+    String MESSAGE_PARAMS_EXCEPTION = "参数异常";
     /**
      * 失败
      */
@@ -34,15 +44,15 @@ public interface IResponseValue {
      * 处理异常
      */
     int CODE_HANDLER_EXCEPTION = 502;
-    String MESSAGE_HANDLER_EXCEPTION = "handler_exception";
+    String MESSAGE_HANDLER_EXCEPTION = "服务器处理异常";
     /**
      * token异常
      */
     int CODE_TOKEN_EXCEPTION = 503;
-    String MESSAGE_TOKEN_EXCEPTION = "token_exception";
+    String MESSAGE_TOKEN_EXCEPTION = "Token失效";
     /**
      * 未知异常
      */
-    int CODE_NOT_FOUNT = 404;
-    String MESSAGE_NOT_FOUNT = "not_fount";
+    int CODE_UN_KNOW_EXCEPTION = 503;
+    String MESSAGE_UN_KNOW_EXCEPTION = "位置异常";
 }

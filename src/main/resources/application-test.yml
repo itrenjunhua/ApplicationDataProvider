@@ -1,0 +1,7 @@
+server:
+  # 端口
+  port: 8888
+
+logging:
+  level:
+    io.swagger.models.parameters.AbstractSerializableParameter: error

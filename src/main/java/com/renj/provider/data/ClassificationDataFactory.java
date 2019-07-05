@@ -6,6 +6,7 @@ import com.renj.provider.utils.CheckUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,8 +49,6 @@ public class ClassificationDataFactory {
         List<ClassificationBean> classificationBean = getClassificationBean();
         String filePath = null;
         for (ClassificationBean bean : classificationBean) {
-                System.out.println(pid);
-                System.out.println(bean);
             if (bean.getId() == pid) {
                 filePath = bean.getFile();
                 break;
@@ -57,8 +56,8 @@ public class ClassificationDataFactory {
         }
         if (!CheckUtils.isEmpty(filePath))
             filePath = filePath.replace("/", File.separator);
-        else
-            throw new IOException("获取分类信息失败(get classification fail)");
+        else // 获取文件失败
+            return new ArrayList<>();
 
         return FactoryHelp.getListBeanList(pid, filePath, pageNo, pageSize);
     }

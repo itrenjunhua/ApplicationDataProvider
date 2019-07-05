@@ -4,8 +4,6 @@ import com.renj.provider.bean.ClassificationBean;
 import com.renj.provider.bean.ListBean;
 import com.renj.provider.bean.base.BaseResponseBean;
 import com.renj.provider.service.ClassificationService;
-import com.renj.provider.utils.ResponseFactory;
-import com.renj.provider.utils.TokenManager;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -34,7 +32,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Api(tags = "分类列表接口")
 @RestController
-@RequestMapping("/classification")
+@RequestMapping("/app/classification")
 public class ClassificationController {
     @Autowired
     private ClassificationService classificationService;
@@ -42,9 +40,6 @@ public class ClassificationController {
     @ApiOperation("获取分类列表")
     @GetMapping("/index")
     public BaseResponseBean<ClassificationBean> classificationBean(HttpServletRequest request) {
-        if (!TokenManager.getInstance().tokenCheck(request))
-            return ResponseFactory.tokenExceptionResponse();
-
         return classificationService.getClassificationBean();
     }
 
@@ -59,12 +54,6 @@ public class ClassificationController {
                                                                 @RequestParam("pid") Integer pid,
                                                                 @RequestParam("pageNo") Integer pageNo,
                                                                 @RequestParam("pageSize") Integer pageSize) {
-        if (!TokenManager.getInstance().tokenCheck(request))
-            return ResponseFactory.tokenExceptionResponse();
-
-        if (pageNo <= 0 || pageSize <= 0)
-            return ResponseFactory.paramsExceptionResponse();
-
         return classificationService.getClassificationListBean(pid, pageNo, pageSize);
     }
 }

@@ -1,6 +1,8 @@
 package com.renj.provider.service;
 
 import com.renj.provider.bean.base.BaseResponseBean;
+import com.renj.provider.common.ApplicationCommon;
+import com.renj.provider.config.MyException;
 import com.renj.provider.dao.ClassificationDao;
 import com.renj.provider.utils.ResponseFactory;
 import org.springframework.stereotype.Service;
@@ -34,7 +36,7 @@ public class ClassificationService {
             return ResponseFactory.successResponse(classificationDao.getClassificationBean());
         } catch (IOException e) {
             e.printStackTrace();
-            return ResponseFactory.handlerExceptionResponse();
+            throw new MyException(ApplicationCommon.CODE_HANDLER_EXCEPTION, ApplicationCommon.MESSAGE_HANDLER_EXCEPTION);
         }
     }
 
@@ -43,7 +45,7 @@ public class ClassificationService {
             return ServiceHelp.getListBean(classificationDao.getListTotalAndPage(pid,pageSize),classificationDao.getClassificationListBean(pid, pageNo, pageSize));
         } catch (IOException e) {
             e.printStackTrace();
-            return ResponseFactory.handlerExceptionResponse();
+            throw new MyException(ApplicationCommon.CODE_HANDLER_EXCEPTION, ApplicationCommon.MESSAGE_HANDLER_EXCEPTION);
         }
     }
 }

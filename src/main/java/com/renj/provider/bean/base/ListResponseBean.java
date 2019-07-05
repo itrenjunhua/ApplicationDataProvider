@@ -1,5 +1,6 @@
 package com.renj.provider.bean.base;
 
+import com.renj.provider.common.ApplicationCommon;
 import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +27,7 @@ public class ListResponseBean<T> extends BaseResponseBean<T> {
     private int page;
 
     public ListResponseBean(int total, int page, T data) {
-        super(IResponseValue.CODE_SUCCESS, IResponseValue.MESSAGE_SUCCESS, data);
+        super(ApplicationCommon.CODE_SUCCESS, ApplicationCommon.MESSAGE_SUCCESS, data);
         this.total = total;
         this.page = page;
     }

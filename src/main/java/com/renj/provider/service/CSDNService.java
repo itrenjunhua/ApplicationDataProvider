@@ -1,8 +1,9 @@
 package com.renj.provider.service;
 
 import com.renj.provider.bean.base.BaseResponseBean;
+import com.renj.provider.common.ApplicationCommon;
+import com.renj.provider.config.MyException;
 import com.renj.provider.dao.CSDNDao;
-import com.renj.provider.utils.ResponseFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class CSDNService {
             return ServiceHelp.getBannerAndNotices(csdnDao.getBannerList(), csdnDao.getNoticeBeanList());
         } catch (IOException e) {
             e.printStackTrace();
-            return ResponseFactory.handlerExceptionResponse();
+            throw new MyException(ApplicationCommon.CODE_HANDLER_EXCEPTION, ApplicationCommon.MESSAGE_HANDLER_EXCEPTION);
         }
     }
 
@@ -43,7 +44,7 @@ public class CSDNService {
             return ServiceHelp.getListBean(csdnDao.getListTotalAndPage(pageSize), csdnDao.getListBeanList(pageNo, pageSize));
         } catch (IOException e) {
             e.printStackTrace();
-            return ResponseFactory.handlerExceptionResponse();
+            throw new MyException(ApplicationCommon.CODE_HANDLER_EXCEPTION, ApplicationCommon.MESSAGE_HANDLER_EXCEPTION);
         }
     }
 }
