@@ -2,3 +2,5 @@ server:
   # 端口
   port: 8888
 
+swagger2:
+  enable: false

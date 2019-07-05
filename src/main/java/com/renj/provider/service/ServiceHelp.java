@@ -1,14 +1,13 @@
 package com.renj.provider.service;
 
+import com.renj.provider.bean.BannerAndNoticeBean;
 import com.renj.provider.bean.BannerBean;
 import com.renj.provider.bean.ListBean;
 import com.renj.provider.bean.NoticeBean;
 import com.renj.provider.bean.base.BaseResponseBean;
 import com.renj.provider.utils.ResponseFactory;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * ======================================================================
@@ -26,10 +25,10 @@ import java.util.Map;
  */
 public class ServiceHelp {
     static BaseResponseBean getBannerAndNotices(List<BannerBean> bannerList, List<NoticeBean> noticeBeanList) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("banners", bannerList);
-        map.put("notices", noticeBeanList);
-        return ResponseFactory.successResponse(map);
+        BannerAndNoticeBean bannerAndNoticeBean = new BannerAndNoticeBean();
+        bannerAndNoticeBean.setBanners(bannerList);
+        bannerAndNoticeBean.setNotices(noticeBeanList);
+        return ResponseFactory.successResponse(bannerAndNoticeBean);
     }
 
     static BaseResponseBean getListBean(int[] listTotalAndPage, List<ListBean> listBeanList) {

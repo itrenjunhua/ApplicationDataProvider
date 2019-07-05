@@ -1,5 +1,6 @@
 package com.renj.provider.controller;
 
+import com.renj.provider.bean.BannerAndNoticeBean;
 import com.renj.provider.bean.ListBean;
 import com.renj.provider.bean.base.BaseResponseBean;
 import com.renj.provider.service.CSDNService;
@@ -39,7 +40,7 @@ public class CSDNController {
 
     @ApiOperation("获取我的CSDN页面banner数据和公告数据")
     @GetMapping("/index")
-    public BaseResponseBean csdnBannerAndNotices(HttpServletRequest request) {
+    public BaseResponseBean<BannerAndNoticeBean> csdnBannerAndNotices(HttpServletRequest request) {
         return csdnService.csdnBannerAndNotices();
     }
 

@@ -1,9 +1,9 @@
 package com.renj.provider.config;
 
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -35,8 +35,10 @@ import java.util.List;
  */
 @Configuration
 @EnableSwagger2
-@Profile({"dev", "test"})
 public class Swagger2Config {
+
+    @Value("${swagger2.enable}")
+    private boolean swagger2Enable;
 
     @Bean
     public Docket createRestApi() {
@@ -52,6 +54,7 @@ public class Swagger2Config {
         // ---------------- 添加head参数end ---------------- //
 
         return new Docket(DocumentationType.SWAGGER_2)
+                .enable(swagger2Enable)
                 .apiInfo(apiInfo())
                 .select()
                 // 扫描指定包中的swagger注解
