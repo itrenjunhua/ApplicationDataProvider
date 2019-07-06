@@ -24,7 +24,7 @@ import java.util.List;
 public class FileUtils {
 
     public static List<String> readFileToListString(String filePath) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(ApplicationCommon.ROOT_DIR + File.separator + filePath));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(ApplicationCommon.ROOT_DIR_DATA + File.separator + filePath));
         List<String> result = new ArrayList<>();
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -44,7 +44,7 @@ public class FileUtils {
      * @throws IOException
      */
     public static <T> List<T> readFileToListBean(String filePath, Class<T> clazz) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(ApplicationCommon.ROOT_DIR + File.separator + filePath));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(ApplicationCommon.ROOT_DIR_DATA + File.separator + filePath));
         List<T> result = new ArrayList<>();
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -55,7 +55,7 @@ public class FileUtils {
     }
 
     public static <T> List<T> readFileToListBean(String filePath, int startIndex, int endIndex, Class<T> clazz) throws IOException {
-        filePath = ApplicationCommon.ROOT_DIR + File.separator + filePath;
+        filePath = ApplicationCommon.ROOT_DIR_DATA + File.separator + filePath;
         LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath));
 
         List<T> result = new ArrayList<>();

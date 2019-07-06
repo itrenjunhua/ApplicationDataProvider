@@ -1,5 +1,7 @@
 package com.renj.provider.common;
 
+import java.io.File;
+
 /**
  * ======================================================================
  * <p>
@@ -18,7 +20,11 @@ public interface ApplicationCommon {
     /**
      * 数据根目录
      */
-    String ROOT_DIR = "data";
+    String ROOT_DIR_DATA = "resources" + File.separator + "data";
+    /**
+     * 图片根目录
+     */
+    String ROOT_DIR_IMAGES = "resources" + File.separator + "images";
 
     /**
      * token缓存更新间隔时间
