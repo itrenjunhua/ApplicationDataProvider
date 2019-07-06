@@ -1,2 +1,4 @@
+{"pid":3,"id":1,"title":"Gradle 使用指南 -- 基础配置","content":"Gradle是一种构建工具，它抛弃了基于XML的构建脚本，取而代之的是采用一种基于Groovy的内部领域特定语言（DSL），建议可以先熟悉一下Groovy脚本。","url":"https://blog.csdn.net/heqiangflytosky/article/details/50853268","images":[]}
+{"pid":4,"id":1,"title":"greenDAO 强大的Android 数据库框架","content":"一款强大的Android数据库框架，优点包括以下几点:1.存取速度快; 2.支持数据库加密; 3.轻量级; 4.激活实体; 5.支持缓存; 6.代码自动生成","url":"https://github.com/greenrobot/greenDAO","images":[]}
 {"pid":5,"id":1,"title":"学习Kotlin，看这一篇就够了","content":"这是一种对程序猿更为友好的语言，可以减少开发者的工作量，原本由开发者干的事情，其实很多都可以由编译器实现了，这是一种更为高级的语言。","url":"https://www.jianshu.com/p/a63c38ad80a5","images":[]}
 {"pid":5,"id":2,"title":"统一SDK版本管理配置","content":"为了提高项目开发效率，在实际项目开发过程中往往会引入一些开源框架，还有项目中使用的各种Module，当引入Module过多时最好提供一种统一的方式去管理版本号。","url":"https://www.jianshu.com/p/5d1a84bc5210","images":[]}

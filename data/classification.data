@@ -1,6 +1,7 @@
 {"id":1,"desc":"my_csdn","label":"我的CSDN","total":54,"file":"my_csdn/list.data"}
 {"id":2,"desc":"my_github","label":"我的GitHub","total":44,"file":"my_github/list.data"}
-{"id":3,"desc":"csdn","label":"CSDN","total":0,"file":"csdn/list.data"}
-{"id":4,"desc":"github","label":"GitHub","total":0,"file":"github/list.data"}
-{"id":5,"desc":"jianshu","label":"简书","total":0,"file":"jianshu/list.data"}
-{"id":6,"desc":"android_bus","label":"Android巴士","total":0,"file":"android_bus/list.data"}
+{"id":3,"desc":"csdn","label":"CSDN博客","total":1,"file":"csdn/list.data"}
+{"id":4,"desc":"github","label":"GitHub项目","total":1,"file":"github/list.data"}
+{"id":5,"desc":"jianshu","label":"简书博客","total":2,"file":"jianshu/list.data"}
+{"id":6,"desc":"android_bus","label":"Android巴士文章","total":0,"file":"android_bus/list.data"}
+{"id":7,"desc":"other","label":"其他文章","total":0,"file":"other/list.data"}
