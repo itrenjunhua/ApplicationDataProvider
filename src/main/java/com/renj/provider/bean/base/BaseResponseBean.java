@@ -27,6 +27,10 @@ public class BaseResponseBean<T> {
     private int code;
     private T data;
 
+    public BaseResponseBean() {
+
+    }
+
     public BaseResponseBean(int code, String message, T data) {
         this.code = code;
         this.message = message;

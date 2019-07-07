@@ -5,6 +5,9 @@ import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * ======================================================================
  * <p>
@@ -22,13 +25,14 @@ import lombok.Setter;
 @ApiModel
 @Getter
 @Setter
-public class ListResponseBean<T> extends BaseResponseBean<T> {
-    private int total;
-    private int page;
-
-    public ListResponseBean(int total, int page, T data) {
-        super(ApplicationCommon.CODE_SUCCESS, ApplicationCommon.MESSAGE_SUCCESS, data);
-        this.total = total;
-        this.page = page;
+public class ListResponseBean<T> extends BaseResponseBean<Map> {
+    public ListResponseBean(int total, int page, T list) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("total", total);
+        map.put("page", page);
+        map.put("list", list);
+        setCode(ApplicationCommon.CODE_SUCCESS);
+        setMessage(ApplicationCommon.MESSAGE_SUCCESS);
+        setData(map);
     }
 }
