@@ -1,8 +1,12 @@
 package com.renj.provider.config;
 
+import com.renj.provider.common.ApplicationCommon;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.io.File;
 
 /**
  * ======================================================================
@@ -30,6 +34,17 @@ public class ConfigAdapter implements WebMvcConfigurer {
 
         registry.addInterceptor(new ParamsInterceptor())
                 .addPathPatterns("/**/list");
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+        /**
+         *  /source/xxx   指文件的访问方式  如：localhost:8080/source/abc.wav
+         *  file:d/voice/  指静态文件存放在服务器上的位置
+         */
+        File resourceFile = new File(ApplicationCommon.ROOT_DIR_IMAGES);
+        registry.addResourceHandler("/source/**").addResourceLocations("file:" + resourceFile.getAbsolutePath() + File.separator);
     }
 
 }
