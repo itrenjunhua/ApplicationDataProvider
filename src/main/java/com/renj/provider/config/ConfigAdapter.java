@@ -43,8 +43,18 @@ public class ConfigAdapter implements WebMvcConfigurer {
          *  /source/xxx   指文件的访问方式  如：localhost:8080/source/abc.wav
          *  file:d/voice/  指静态文件存放在服务器上的位置
          */
-        File resourceFile = new File(ApplicationCommon.ROOT_DIR_IMAGES);
-        registry.addResourceHandler("/source/**").addResourceLocations("file:" + resourceFile.getAbsolutePath() + File.separator);
+        registry.addResourceHandler("/images/**")
+                .addResourceLocations("file:" + ApplicationCommon.ROOT_DIR_IMAGES + File.separator);   // 图片资源
+
+//        String os = System.getProperty("os.name");
+//        if (os.toLowerCase().startsWith("win")) {  //如果是Windows系统
+//            File resourceFile = new File(ApplicationCommon.ROOT_DIR_IMAGES);
+//            registry.addResourceHandler("/images/**")
+//                    .addResourceLocations("file:" + ApplicationCommon.ROOT_DIR_IMAGES + File.separator); // 图片资源
+//        } else {  //linux 和mac
+//            registry.addResourceHandler("/images/**")
+//                    .addResourceLocations("file:" + ApplicationCommon.ROOT_DIR_IMAGES + File.separator);   // 图片资源
+//        }
     }
 
 }
